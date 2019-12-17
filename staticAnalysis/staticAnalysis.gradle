@@ -1,0 +1,154 @@
+apply from: "$staticAnalysisDir/detekt.gradle"
+
+task staticAnalysis {
+
+    dependsOn 'cleananalysisReports'
+
+    if (staticAnalysisEnableDetekt) {
+        dependsOn ':detektAll'
+    }
+
+    if (staticAnalysisEnableLint) {
+        dependsOn ':app:lintDebug'
+    }
+
+    doLast {
+        generateReport()
+    }
+}
+
+def generateReport() {
+    StringBuilder consoleReport = new StringBuilder()
+    consoleReport.append("STATIC ANALYSIS RESULTS:")
+    def count = 0
+
+    def previousCount = count
+
+    count = appendKotlinErrors(count, new File("$staticAnalysisReportDir/report_detekt.xml"))
+    if (count - previousCount > 0) {
+        consoleReport.append("\nKotlin-detekt: FAILED (" + (count - previousCount) + " errors)")
+    } else {
+        consoleReport.append("\nKotlin-detekt: PASSED")
+    }
+
+    previousCount = count
+    count = appendLintErrors(count, new File(staticAnalysisReportDir))
+    if (count - previousCount > 0) {
+        consoleReport.append("\nLint: FAILED (" + (count - previousCount) + " errors)")
+    } else {
+        consoleReport.append("\nLint: PASSED")
+    }
+
+
+    if (count > 0) {
+        consoleReport.append("\nOverall: FAILED (" + count + " errors)")
+        throw new Exception(consoleReport.toString())
+    } else {
+        consoleReport.append("\nOverall: PASSED")
+        println(consoleReport.toString())
+    }
+}
+
+static def appendKotlinErrors(int count, File detektReport) {
+    def rootNode = new XmlParser().parse(detektReport)
+    for (def fileNode : rootNode.children()) {
+        if (!fileNode.name().equals("file")) {
+            continue
+        }
+
+        for (def errorNode : fileNode.children()) {
+            if (!errorNode.name().equals("error")) {
+                continue
+            }
+            count++
+
+            appendError(
+                    count,
+                    "Detekt",
+                    fileNode.attribute("name"),
+                    errorNode.attribute("line"),
+                    errorNode.attribute("column"),
+                    errorNode.attribute("source"),
+                    "",
+                    errorNode.attribute("message")
+            )
+        }
+    }
+    return count
+}
+
+static def appendLintErrors(int count, File reportDir) {
+    def lintReports = reportDir.listFiles().findAll { file -> file.name.matches("^lint.*xml\$") }
+
+    if (lintReports == null || lintReports.isEmpty()) {
+        println("can't find any lint report")
+        return count
+    }
+
+    for (report in lintReports) {
+        count = appendLintErrorsFromFile(count, report)
+    }
+
+    return count
+}
+
+
+static def appendLintErrorsFromFile(int count, File lintFile) {
+    def rootNode = new XmlParser().parse(lintFile)
+    for (def issueNode : rootNode.children()) {
+        if (!issueNode.name().equals("issue")
+                || !issueNode.attribute("severity").equals("Error")) {
+            continue
+        }
+        for (def locationNode : issueNode.children()) {
+            if (!locationNode.name().equals("location")) {
+                continue
+            }
+            count++
+            appendError(
+                    count,
+                    "Lint",
+                    locationNode.attribute("file"),
+                    locationNode.attribute("line"),
+                    locationNode.attribute("column"),
+                    issueNode.attribute("id"),
+                    issueNode.attribute("explanation"),
+                    issueNode.attribute("message")
+            )
+        }
+    }
+    return count
+}
+
+static def appendError(number, analyzer, file, line, column, errorId, errorLink, description) {
+    String errorPath = file.toString()
+    if (line != null) {
+        errorPath += ":$line"
+        if (column != null) {
+            errorPath += ":$column"
+        }
+    }
+    println("$number. $analyzer : $description ($errorId)\n\tat $errorPath")
+}
+
+//detekt {
+//    debug = true
+//    toolVersion = "1.0.0-RC12"
+//    filters = ".*test.*,.*androidTest.*,.*//*resources/.*,.*//*build/.*"
+//    input = files("$rootDir/app/src/main/kotlin", "$rootDir/data/src/main/kotlin", "$rootDir/domain/src/main/kotlin")
+//    config = files("$staticAnalysisDir/detekt-config.yml")
+//
+//    reports {
+//        xml {
+//            enabled = true
+//            destination = file("$staticAnalysisReportDir/report_detekt.xml")
+//        }
+//        html {
+//            enabled = false
+//        }
+//    }
+//}
+
+task cleananalysisReports(type: Delete) {
+    delete staticAnalysisReportDir
+}

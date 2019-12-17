@@ -1,0 +1,13 @@
+android {
+    lintOptions {
+        checkReleaseBuilds false
+        abortOnError = false
+        checkAllWarnings = true
+        warningsAsErrors = false
+        xmlReport = true
+        xmlOutput = file("$staticAnalysisReportDir\\lint_report_${project.name}.xml")
+        htmlReport = true
+        htmlOutput = file("$staticAnalysisReportDir\\lint_report_${project.name}.html")
+        lintConfig = file("$staticAnalysisDir\\lint.xml")
+    }
+}
