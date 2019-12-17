@@ -1,4 +1,4 @@
-package com.itmoclimbing.presentation
+package com.itmoclimbing.presentation.users
 
 import androidx.fragment.app.Fragment
 

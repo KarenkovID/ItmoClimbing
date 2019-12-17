@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/menuItemRoutes"
+        android:title="@string/routes"
+        android:icon="@drawable/icon_routes"/>
+
+    <item
+        android:id="@+id/menuItemUsers"
+        android:title="@string/users"
+        android:icon="@drawable/icon_users"/>
+
+</menu>
