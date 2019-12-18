@@ -36,6 +36,11 @@ object Libraries {
     const val constraintLayout = "androidx.constraintlayout:constraintlayout:${Versions.constraintLayout}"
     const val ktxCore = "androidx.core:core-ktx:${Versions.ktx}"
     const val material = "com.google.android.material:material:${Versions.material}"
+    const val cicerone = "ru.terrakok.cicerone:cicerone:5.0.0"
+
+    const val rxJava = "io.reactivex.rxjava2:rxjava:2.2.16"
+    const val rxKotlin = "io.reactivex.rxjava2:rxkotlin:2.4.0"
+    const val rxAndroid = "io.reactivex.rxjava2:rxandroid:2.1.1"
 }
 
 object TestLibraries {

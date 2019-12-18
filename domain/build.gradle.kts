@@ -12,4 +12,9 @@ dependencies {
     implementation(DI.toothpickRuntime)
     implementation(DI.toothpickSmoothie)
     kapt(DI.toothpickCompiler)
+
+    implementation(Libraries.cicerone)
+
+    implementation(Libraries.rxJava)
+    implementation(Libraries.rxKotlin)
 }

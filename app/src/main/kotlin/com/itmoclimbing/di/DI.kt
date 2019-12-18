@@ -12,6 +12,7 @@ object DI {
         Toothpick
             .openScope(Scopes.APP_SCOPE.scopeName)
             .installModules(
+                AppModule(),
                 RoutesModule(),
                 UserModule()
             )

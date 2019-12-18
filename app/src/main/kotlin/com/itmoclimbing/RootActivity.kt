@@ -7,49 +7,36 @@ import com.itmoclimbing.di.DI
 import com.itmoclimbing.di.Scopes
 import com.itmoclimbing.domain.MyClass
 import com.itmoclimbing.domain.repository.RoutesRepository
-import com.itmoclimbing.navigation.RootNavigator
-import kotlinx.android.synthetic.main.activity_main.mainBottomNavigation
+import com.itmoclimbing.navigation.RootNavigation
 import ru.terrakok.cicerone.Cicerone
 import ru.terrakok.cicerone.Navigator
+import ru.terrakok.cicerone.NavigatorHolder
 import ru.terrakok.cicerone.Router
+import ru.terrakok.cicerone.android.support.SupportAppNavigator
 
 class RootActivity : AppCompatActivity() {
 
-    private val routesRepository =
-            DI
-                    .getScope(Scopes.APP_SCOPE)
-                    .getInstance(RoutesRepository::class.java)
-
     private val navigator: Navigator by lazy {
-        RootNavigator(this, R.id.bottomNavigationContainer)
+        SupportAppNavigator(this, R.id.rootContainer)
+                .apply { rootScreenNavigation.register(this) }
     }
 
-    private val router: Router by lazy {
-        Router()
+    private val rootScreenNavigation: RootNavigation by lazy {
+        DI
+                .getScope(Scopes.APP_SCOPE)
+                .getInstance(RootNavigation::class.java)
     }
+
+    private val navigatorHolder: NavigatorHolder by lazy {
+        DI
+                .getScope(Scopes.APP_SCOPE)
+                .getInstance(NavigatorHolder::class.java, RootNavigation.NAME)
+    }
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        MyClass.test()
-        TestData.testData()
-        routesRepository.getAllRoutes()
-        val cicerone = Cicerone.create().also {
-            it.navigatorHolder.setNavigator(navigator)
-        }
-
-        mainBottomNavigation.setOnNavigationItemSelectedListener { item ->
-            when (item.itemId) {
-                R.id.menuItemRoutes -> {
-                    cicerone.router.navigateTo()
-                    true
-                }
-                R.id.menuItemUsers -> {
-                    true
-                }
-                else -> false
-            }
-        }
     }
 
 }

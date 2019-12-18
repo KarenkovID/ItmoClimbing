@@ -74,9 +74,12 @@ dependencies {
     implementation(DI.toothpickSmoothie)
     kapt(DI.toothpickCompiler)
 
-    implementation("ru.terrakok.cicerone:cicerone:5.0.0")
-
+    implementation(Libraries.cicerone)
     implementation(Libraries.material)
+
+    implementation(Libraries.rxJava)
+    implementation(Libraries.rxKotlin)
+    implementation(Libraries.rxAndroid)
 
 //    implementation("androidx.appcompat:appcompat:1.1.0")
 //    implementation("androidx.core:core-ktx:1.1.0")
