@@ -1,4 +1,4 @@
-package com.itmoclimbing.navigation
+package com.itmoclimbing.internal.navigation
 
 import com.itmoclimbing.domain.navigation.AppRouter
 import ru.terrakok.cicerone.Screen

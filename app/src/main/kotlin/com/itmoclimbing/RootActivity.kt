@@ -2,41 +2,46 @@ package com.itmoclimbing
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.itmoclimbing.data.TestData
-import com.itmoclimbing.di.DI
-import com.itmoclimbing.di.Scopes
-import com.itmoclimbing.domain.MyClass
-import com.itmoclimbing.domain.repository.RoutesRepository
-import com.itmoclimbing.navigation.RootNavigation
-import ru.terrakok.cicerone.Cicerone
+import androidx.lifecycle.ViewModelProviders
+import com.itmoclimbing.internal.di.DI
+import com.itmoclimbing.internal.di.Scopes
+import com.itmoclimbing.internal.navigation.screens.root.RootScreenNavigation
 import ru.terrakok.cicerone.Navigator
 import ru.terrakok.cicerone.NavigatorHolder
-import ru.terrakok.cicerone.Router
 import ru.terrakok.cicerone.android.support.SupportAppNavigator
 
-class RootActivity : AppCompatActivity() {
+class RootActivity : AppCompatActivity(R.layout.activity_root) {
 
     private val navigator: Navigator by lazy {
         SupportAppNavigator(this, R.id.rootContainer)
                 .apply { rootScreenNavigation.register(this) }
     }
 
-    private val rootScreenNavigation: RootNavigation by lazy {
+    private val rootScreenNavigation: RootScreenNavigation by lazy {
         DI
                 .getScope(Scopes.APP_SCOPE)
-                .getInstance(RootNavigation::class.java)
+                .getInstance(RootScreenNavigation::class.java)
     }
 
     private val navigatorHolder: NavigatorHolder by lazy {
         DI
                 .getScope(Scopes.APP_SCOPE)
-                .getInstance(NavigatorHolder::class.java, RootNavigation.NAME)
+                .getInstance(NavigatorHolder::class.java, RootScreenNavigation.NAME)
     }
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        val model = ViewModelProviders.of(this).get(RootViewModel::class.java)
+    }
+
+    override fun onResumeFragments() {
+        super.onResumeFragments()
+        navigatorHolder.setNavigator(navigator)
+    }
+
+    override fun onPause() {
+        navigatorHolder.removeNavigator()
+        super.onPause()
     }
 
 }

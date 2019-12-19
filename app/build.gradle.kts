@@ -81,6 +81,8 @@ dependencies {
     implementation(Libraries.rxKotlin)
     implementation(Libraries.rxAndroid)
 
+    implementation("android.arch.lifecycle:extensions:1.1.1")
+    annotationProcessor("android.arch.lifecycle:compiler:1.1.1")
 //    implementation("androidx.appcompat:appcompat:1.1.0")
 //    implementation("androidx.core:core-ktx:1.1.0")
 //    implementation("androidx.constraintlayout:constraintlayout:1.1.3")

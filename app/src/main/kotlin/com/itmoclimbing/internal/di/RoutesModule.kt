@@ -1,4 +1,4 @@
-package com.itmoclimbing.di
+package com.itmoclimbing.internal.di
 
 import com.itmoclimbing.data.repository.RoutesRepositoryStub
 import com.itmoclimbing.domain.repository.RoutesRepository

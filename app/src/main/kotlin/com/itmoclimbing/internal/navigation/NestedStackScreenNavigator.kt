@@ -1,4 +1,4 @@
-package com.itmoclimbing.navigation
+package com.itmoclimbing.internal.navigation
 
 import android.annotation.SuppressLint
 import androidx.fragment.app.Fragment

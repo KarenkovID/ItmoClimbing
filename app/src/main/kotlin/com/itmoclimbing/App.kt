@@ -1,7 +1,7 @@
 package com.itmoclimbing
 
 import android.app.Application
-import com.itmoclimbing.di.DI
+import com.itmoclimbing.internal.di.DI
 
 class App : Application() {
 
