@@ -15,14 +15,20 @@ class UsersScreenNavigation @Inject constructor(
         const val NAME = "USERS_NAVIGATION"
     }
 
-    private val usersListScreen = FragmentScreen("USERS_LIST_FRAGMENT", UsersListFragment.Companion::newInstance)
+    private fun getUsersListScreen(screenPos: Int) = FragmentScreen("USERS_LIST_FRAGMENT") {
+        UsersListFragment.newInstance(screenPos)
+    }
 
     fun openUsersListAsRoot() {
-        router.newRootScreen(usersListScreen)
+        router.newRootScreen(getUsersListScreen(1))
     }
 
     fun openAndReplaceUsersList() {
-        router.replaceScreen(usersListScreen)
+        router.replaceScreen(getUsersListScreen(1))
+    }
+
+    fun openUsersList(screenPos: Int) {
+        router.addScreen(getUsersListScreen(screenPos))
     }
 
 }

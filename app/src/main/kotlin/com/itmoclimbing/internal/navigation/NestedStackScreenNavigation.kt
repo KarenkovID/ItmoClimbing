@@ -8,10 +8,10 @@ abstract class NestedStackScreenNavigation(
         private val screenRouter: AppRouter
 ) {
 
-    private val specs = mutableListOf<SupportAppScreen>()
+    protected val specs = mutableListOf<SupportAppScreen>()
 
     fun register(navigator: NestedStackScreenNavigator) {
-        specs.forEach(navigator::registerScreenSpec)
+        specs.forEach(navigator::registerScreens)
     }
 
     fun back() {

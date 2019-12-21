@@ -25,16 +25,16 @@ class UsersScreenContainerFragment : BaseScreenContainerFragment() {
                 .getInstance(NavigatorHolder::class.java, UsersScreenNavigation.NAME)
     }
 
-    override fun executeFirstCommand() {
+    override fun openFirstScreen() {
         routesNavigation.openAndReplaceUsersList()
     }
 
-//    override fun cleanScreenStack() {
-//        if (childFragmentManager.backStackEntryCount > 0) {
-//            routesNavigation.openListAsRoot()
-//        }
-//    }
+    override fun cleanScreenStack() {
+        if (childFragmentManager.backStackEntryCount > 0) {
+            routesNavigation.openUsersListAsRoot()
+        }
+    }
 
-//    override fun onBackPressedInternal() = false
+    override fun performOnBackPressed(): Boolean = false
 
 }

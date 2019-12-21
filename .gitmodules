@@ -1,0 +1,3 @@
+[submodule "KommanderComponents"]
+	path = KommanderComponents
+	url = https://github.com/KarenkovID/KommanderComponents.git

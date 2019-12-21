@@ -49,9 +49,9 @@ open class AppRouter : Router() {
         }
     }
 
-//    fun addScreen(screenKey: String, data: Any? = null) {
-//        executeCommands(AddScreen(screenKey, data))
-//    }
+    fun addScreen(screen: Screen) {
+        executeCommands(Forward(screen))
+    }
 //
 //    fun replaceAndResetScreen(screenKey: String, data: Any? = null) {
 //        executeCommands(ReplaceAndReset(screenKey, data))

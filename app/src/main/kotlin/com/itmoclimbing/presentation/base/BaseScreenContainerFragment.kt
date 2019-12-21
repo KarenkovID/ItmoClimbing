@@ -8,7 +8,7 @@ import ru.terrakok.cicerone.Navigator
 import ru.terrakok.cicerone.NavigatorHolder
 import ru.terrakok.cicerone.android.support.SupportAppNavigator
 
-abstract class BaseScreenContainerFragment : Fragment(R.layout.fragment_container) {
+abstract class BaseScreenContainerFragment : BaseFragment(R.layout.fragment_container), InnerScreensStack {
 
     private lateinit var navigator: Navigator
 
@@ -16,9 +16,7 @@ abstract class BaseScreenContainerFragment : Fragment(R.layout.fragment_containe
 
     protected abstract val navigatorHolder: NavigatorHolder
 
-//    protected abstract fun provideScreenNavigation(): ScreenNavigation
-
-    protected abstract fun executeFirstCommand()
+    protected abstract fun openFirstScreen()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,19 +26,13 @@ abstract class BaseScreenContainerFragment : Fragment(R.layout.fragment_containe
                         childFragmentManager,
                         R.id.screenContainer
                 )
-                        .apply { routesNavigation.register(this) }
+//                        .apply { routesNavigation.register(this) }
     }
-
-//    override fun cleanScreenStack() {
-//        if (childFragmentManager.backStackEntryCount > 0) {
-//            routesNavigation.openListAsRoot()
-//        }
-//    }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         if (childFragmentManager.findFragmentById(R.id.screenContainer) == null) {
-            executeFirstCommand()
+            openFirstScreen()
         }
     }
 

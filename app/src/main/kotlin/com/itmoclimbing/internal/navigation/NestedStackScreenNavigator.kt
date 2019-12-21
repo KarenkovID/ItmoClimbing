@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.fragment.app.FragmentManager
+import com.itmoclimbing.presentation.base.InnerScreensStack
 import ru.terrakok.cicerone.android.support.SupportAppNavigator
 import ru.terrakok.cicerone.android.support.SupportAppScreen
 import ru.terrakok.cicerone.commands.Back
@@ -16,10 +17,11 @@ class NestedStackScreenNavigator(
         private val containerId: Int
 ) : SupportAppNavigator(activity, fragmentManager, containerId) {
 
+    // Contains all available screens for tabs
     private val nestedContainers = mutableSetOf<Pair<String, Fragment>>()
 
-    fun registerScreenSpec(spec: SupportAppScreen) {
-        nestedContainers.add(spec.screenKey to initContainer(spec.screenKey) { spec.fragment })
+    fun registerScreens(screen: SupportAppScreen) {
+        nestedContainers.add(screen.screenKey to initContainer(screen.screenKey) { screen.fragment })
     }
 
     override fun applyCommands(commands: Array<out Command>?) {
@@ -42,10 +44,10 @@ class NestedStackScreenNavigator(
 
         replace(toDetach = toDetach, toAttach = toAttach)
 
-//        val fragmentToAttach = toAttach.second
-//        if (clean && fragmentToAttach is HasScreenStack) {
-//            fragmentToAttach.cleanScreenStack()
-//        }
+        val fragmentToAttach = toAttach.second
+        if (clean && fragmentToAttach is InnerScreensStack) {
+            fragmentToAttach.cleanScreenStack()
+        }
     }
 
     @SuppressLint("CommitTransaction")

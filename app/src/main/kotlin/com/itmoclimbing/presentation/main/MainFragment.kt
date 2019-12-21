@@ -2,19 +2,18 @@ package com.itmoclimbing.presentation.main
 
 import android.os.Bundle
 import android.view.View
-import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
 import com.itmoclimbing.R
 import com.itmoclimbing.internal.di.DI
 import com.itmoclimbing.internal.di.Scopes
+import com.itmoclimbing.internal.navigation.NestedStackScreenNavigator
 import com.itmoclimbing.internal.navigation.screens.main.MainScreenNavigation
-import com.itmoclimbing.internal.navigation.screens.root.RootScreenNavigation
+import com.itmoclimbing.presentation.base.BaseFragment
 import kotlinx.android.synthetic.main.fragment_main.mainBottomNavigation
 import ru.terrakok.cicerone.Navigator
 import ru.terrakok.cicerone.NavigatorHolder
-import ru.terrakok.cicerone.android.support.SupportAppNavigator
 
-class MainFragment : Fragment(R.layout.fragment_main) {
+class MainFragment : BaseFragment(R.layout.fragment_main) {
 
     companion object {
 
@@ -23,14 +22,12 @@ class MainFragment : Fragment(R.layout.fragment_main) {
     }
 
     private val navigator: Navigator by lazy {
-        SupportAppNavigator(requireActivity(), childFragmentManager, R.id.mainContainer)
-                .apply { mainScreenNavigation.register(this) }
+        NestedStackScreenNavigator(requireActivity(), childFragmentManager, R.id.mainContainer)
+                .apply { mainNavigation.register(this) }
     }
 
-    private val mainScreenNavigation: RootScreenNavigation by lazy {
-        DI
-                .getScope(Scopes.APP_SCOPE)
-                .getInstance(RootScreenNavigation::class.java)
+    private val mainNavigation: MainScreenNavigation by lazy {
+        DI.getScope(Scopes.APP_SCOPE).getInstance(MainScreenNavigation::class.java)
     }
 
     private val navigatorHolder: NavigatorHolder by lazy {
@@ -56,6 +53,8 @@ class MainFragment : Fragment(R.layout.fragment_main) {
         super.onResume()
         navigatorHolder.setNavigator(navigator)
     }
+
+    override fun performOnBackPressed(): Boolean = false
 
     override fun onPause() {
         navigatorHolder.removeNavigator()

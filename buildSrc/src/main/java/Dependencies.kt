@@ -1,7 +1,7 @@
 @file:Suppress("detekt.UtilityClassWithPublicConstructor", "detekt.TopLevelPropertyNaming")
 
 @Suppress("detekt.TopLevelPropertyNaming")
-const val kotlinVersion = "1.3.60"
+const val kotlinVersion = "1.3.61"
 
 object BuildPlugins {
 
@@ -28,7 +28,7 @@ object Libraries {
         const val jetpack = "1.2.0-alpha01"
         const val constraintLayout = "1.1.2"
         const val ktx = "1.0.0"
-        const val material = "1.2.0-alpha02"
+        const val material = "1.2.0-alpha03"
     }
 
     const val kotlinStdLib = "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion"
@@ -37,10 +37,16 @@ object Libraries {
     const val ktxCore = "androidx.core:core-ktx:${Versions.ktx}"
     const val material = "com.google.android.material:material:${Versions.material}"
     const val cicerone = "ru.terrakok.cicerone:cicerone:5.0.0"
+    const val adapterDelegates = "com.hannesdorfmann:adapterdelegates4:4.2.0"
+    const val timber = "com.jakewharton.timber:timber:4.7.1"
 
     const val rxJava = "io.reactivex.rxjava2:rxjava:2.2.16"
     const val rxKotlin = "io.reactivex.rxjava2:rxkotlin:2.4.0"
     const val rxAndroid = "io.reactivex.rxjava2:rxandroid:2.1.1"
+}
+
+object DebugLibraries {
+    const val leakcanary = "com.squareup.leakcanary:leakcanary-android:2.0"
 }
 
 object TestLibraries {
@@ -61,4 +67,11 @@ object DI {
     const val toothpickRuntime = "com.github.stephanenicolas.toothpick:toothpick-runtime:$toothpick"
     const val toothpickSmoothie = "com.github.stephanenicolas.toothpick:smoothie:$toothpick"
     const val toothpickCompiler = "com.github.stephanenicolas.toothpick:toothpick-compiler:$toothpick"
+}
+
+object Projects {
+
+    const val androidCore = ":android_core"
+    const val domainCore = ":domain_core"
+
 }

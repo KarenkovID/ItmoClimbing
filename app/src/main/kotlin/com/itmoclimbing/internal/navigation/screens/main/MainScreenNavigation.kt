@@ -20,6 +20,11 @@ class MainScreenNavigation @Inject constructor(
     private val routesContainerScreen = FragmentScreen("ROUTES_CONTAINER_SCREEN", RoutesScreenContainerFragment.Companion::newInstance)
     private val usersContainerScreen = FragmentScreen("USERS_CONTAINER_SCREEN", UsersScreenContainerFragment.Companion::newInstance)
 
+    init {
+        specs.add(routesContainerScreen)
+        specs.add(usersContainerScreen)
+    }
+
     fun selectRoutes() {
         replace(routesContainerScreen)
     }

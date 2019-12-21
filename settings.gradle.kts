@@ -1,2 +1,5 @@
 rootProject.name="itmoclimbing"
-include(":app", ":domain", ":data")
+
+val componentsRoot: String by extra("KommanderComponents")
+apply(from = "KommanderComponents/modules.gradle.kts")
+include(":app", ":domain", ":data", ":android_core")

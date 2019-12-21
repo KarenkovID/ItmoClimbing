@@ -1,4 +1,4 @@
-package com.itmoclimbing.internal.di
+package com.itmoclimbing.internal.di.app
 
 import com.itmoclimbing.internal.navigation.screens.root.RootScreenNavigation
 import ru.terrakok.cicerone.Cicerone
