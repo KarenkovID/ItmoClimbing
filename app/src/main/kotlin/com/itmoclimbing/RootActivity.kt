@@ -2,54 +2,52 @@ package com.itmoclimbing
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.itmoclimbing.data.TestData
-import com.itmoclimbing.di.DI
-import com.itmoclimbing.di.Scopes
-import com.itmoclimbing.domain.MyClass
-import com.itmoclimbing.domain.repository.RoutesRepository
-import com.itmoclimbing.navigation.RootNavigator
-import kotlinx.android.synthetic.main.activity_main.mainBottomNavigation
-import ru.terrakok.cicerone.Cicerone
+import androidx.lifecycle.ViewModelProviders
+import com.itmoclimbing.internal.di.DI
+import com.itmoclimbing.internal.di.Scopes
+import com.itmoclimbing.internal.navigation.screens.root.RootScreenNavigation
+import com.itmoclimbing.presentation.base.BaseActivity
 import ru.terrakok.cicerone.Navigator
-import ru.terrakok.cicerone.Router
+import ru.terrakok.cicerone.NavigatorHolder
+import ru.terrakok.cicerone.android.support.SupportAppNavigator
 
-class RootActivity : AppCompatActivity() {
-
-    private val routesRepository =
-            DI
-                    .getScope(Scopes.APP_SCOPE)
-                    .getInstance(RoutesRepository::class.java)
+class RootActivity : BaseActivity(R.layout.activity_root) {
 
     private val navigator: Navigator by lazy {
-        RootNavigator(this, R.id.bottomNavigationContainer)
+        SupportAppNavigator(this, R.id.rootContainer)
+//                .apply { rootScreenNavigation.register(this) }
     }
 
-    private val router: Router by lazy {
-        Router()
+    private val rootScreenNavigation: RootScreenNavigation by lazy {
+        DI
+                .getScope(Scopes.APP_SCOPE)
+                .getInstance(RootScreenNavigation::class.java)
+    }
+
+    private val navigatorHolder: NavigatorHolder by lazy {
+        DI
+                .getScope(Scopes.APP_SCOPE)
+                .getInstance(NavigatorHolder::class.java, RootScreenNavigation.NAME)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-        MyClass.test()
-        TestData.testData()
-        routesRepository.getAllRoutes()
-        val cicerone = Cicerone.create().also {
-            it.navigatorHolder.setNavigator(navigator)
-        }
+        val model = ViewModelProviders.of(this).get(RootViewModel::class.java)
+    }
 
-        mainBottomNavigation.setOnNavigationItemSelectedListener { item ->
-            when (item.itemId) {
-                R.id.menuItemRoutes -> {
-                    cicerone.router.navigateTo()
-                    true
-                }
-                R.id.menuItemUsers -> {
-                    true
-                }
-                else -> false
-            }
-        }
+    override fun onResumeFragments() {
+        super.onResumeFragments()
+        navigatorHolder.setNavigator(navigator)
+    }
+
+    override fun performOnBackPressed(): Boolean {
+        finish()
+        return true
+    }
+
+    override fun onPause() {
+        navigatorHolder.removeNavigator()
+        super.onPause()
     }
 
 }

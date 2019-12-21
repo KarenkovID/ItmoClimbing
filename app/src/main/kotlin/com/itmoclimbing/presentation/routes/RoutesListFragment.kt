@@ -1,9 +1,14 @@
 package com.itmoclimbing.presentation.routes
 
-import androidx.fragment.app.Fragment
+import com.itmoclimbing.R
+import com.itmoclimbing.presentation.base.BaseFragment
 
-class RoutesListFragment: Fragment() {
+class RoutesListFragment : BaseFragment(R.layout.fragment_routes_list) {
 
+    companion object {
+        fun newInstance() = RoutesListFragment()
+    }
 
+    override fun performOnBackPressed(): Boolean = false
 
 }

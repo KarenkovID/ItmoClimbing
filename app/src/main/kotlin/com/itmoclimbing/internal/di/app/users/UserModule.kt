@@ -1,4 +1,4 @@
-package com.itmoclimbing.di
+package com.itmoclimbing.internal.di.app.users
 
 import com.itmoclimbing.data.repository.UsersRepositoryStub
 import com.itmoclimbing.domain.repository.UsersRepository

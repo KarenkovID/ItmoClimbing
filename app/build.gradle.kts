@@ -1,5 +1,3 @@
-import org.jetbrains.kotlin.config.KotlinCompilerVersion
-
 plugins {
     id(BuildPlugins.androidApplication)
     id(BuildPlugins.kotlinAndroid)
@@ -8,10 +6,11 @@ plugins {
 }
 
 val staticAnalysisDir: String by rootProject.extra
+apply(from = "$rootDir/dependenciesGraph.gradle")
 apply(from = "$staticAnalysisDir/lint.gradle")
 
 android {
-    compileSdkVersion(29)
+    compileSdkVersion(AndroidSdk.compile)
 
     defaultConfig {
         applicationId = "com.kommander.itmoclimbing"
@@ -25,9 +24,9 @@ android {
         javaCompileOptions {
             annotationProcessorOptions {
                 arguments = mapOf(
-                    "toothpick_registry_package_name" to "com.itmoclimbing.app",
-                    "toothpick_registry_children_package_names" to "com.itmoclimbing.domain,com.itmoclimbing.data",
-                    "support_obfuscation" to "true"
+                        "toothpick_registry_package_name" to "com.itmoclimbing.app",
+                        "toothpick_registry_children_package_names" to "com.itmoclimbing.domain,com.itmoclimbing.data",
+                        "support_obfuscation" to "true"
                 )
             }
         }
@@ -37,10 +36,10 @@ android {
         getByName("release") {
             isMinifyEnabled = false
             setProguardFiles(
-                listOf(
-                    getDefaultProguardFile("proguard-android-optimize.txt"),
-                    "proguard-rules.pro"
-                )
+                    listOf(
+                            getDefaultProguardFile("proguard-android-optimize.txt"),
+                            "proguard-rules.pro"
+                    )
             )
         }
     }
@@ -56,28 +55,33 @@ apply(from = "$rootDir/dependencies.gradle.kts")
 dependencies {
     implementation(project(":domain"))
     implementation(project(":data"))
-    implementation(kotlin("stdlib", KotlinCompilerVersion.VERSION))
+    implementation(project(Projects.androidCore))
 
-    val deps: Map<String, String> by rootProject.extra
+    implementation(Libraries.kotlinStdLib)
+    implementation(Libraries.kotlinStdLib)
+    implementation(Libraries.appCompat)
+    implementation(Libraries.ktxCore)
+    implementation(Libraries.constraintLayout)
 
-    implementation(deps.getValue("kotlinStdLib"))
-    implementation(deps.getValue("appCompat"))
-    implementation(deps.getValue("ktxCore"))
-    implementation(deps.getValue("constraintLayout"))
-
-    val testDeps: Map<String, String> by rootProject.extra
-    testImplementation(testDeps.getValue("junit4"))
-    androidTestImplementation(testDeps.getValue("testRunner"))
-    androidTestImplementation(testDeps.getValue("espresso"))
+    testImplementation(TestLibraries.junit4)
+    androidTestImplementation(TestLibraries.testRunner)
+    androidTestImplementation(TestLibraries.espresso)
 
     implementation(DI.toothpickRuntime)
     implementation(DI.toothpickSmoothie)
     kapt(DI.toothpickCompiler)
 
-    implementation("ru.terrakok.cicerone:cicerone:5.0.0")
-
+    implementation(Libraries.cicerone)
     implementation(Libraries.material)
 
+    implementation(Libraries.rxJava)
+    implementation(Libraries.rxKotlin)
+    implementation(Libraries.rxAndroid)
+
+    implementation(DebugLibraries.leakcanary)
+
+    implementation("android.arch.lifecycle:extensions:1.1.1")
+    annotationProcessor("android.arch.lifecycle:compiler:1.1.1")
 //    implementation("androidx.appcompat:appcompat:1.1.0")
 //    implementation("androidx.core:core-ktx:1.1.0")
 //    implementation("androidx.constraintlayout:constraintlayout:1.1.3")
