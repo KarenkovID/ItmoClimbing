@@ -1,12 +1,11 @@
 package com.itmoclimbing
 
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProviders
 import com.itmoclimbing.internal.di.DI
 import com.itmoclimbing.internal.di.Scopes
 import com.itmoclimbing.internal.navigation.screens.root.RootScreenNavigation
-import com.itmoclimbing.presentation.base.BaseActivity
+import com.itmoclimbing.presentationcommon.base.BaseActivity
 import ru.terrakok.cicerone.Navigator
 import ru.terrakok.cicerone.NavigatorHolder
 import ru.terrakok.cicerone.android.support.SupportAppNavigator

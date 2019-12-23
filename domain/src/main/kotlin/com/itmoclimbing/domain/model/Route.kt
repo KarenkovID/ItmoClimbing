@@ -4,7 +4,7 @@ data class Route(
     val id: String,
     val name: String,
     val grade: String,
-    val setters: List<User>,
-    val solvedBy: List<User>,
+    val setter: User,
+    val description: String,
     val imagesUrls: List<String>
 )

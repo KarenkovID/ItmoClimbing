@@ -6,10 +6,9 @@ import com.itmoclimbing.R
 import com.itmoclimbing.internal.di.DI
 import com.itmoclimbing.internal.di.Scopes
 import com.itmoclimbing.internal.navigation.screens.users.UsersScreenNavigation
-import com.itmoclimbing.presentation.base.BaseFragment
+import com.itmoclimbing.presentationcommon.base.BaseFragment
 import com.kommander.components.android_core.extra.args
-import kotlinx.android.synthetic.main.fragment_users_list.fragmentStackText
-import kotlinx.android.synthetic.main.fragment_users_list.nextFragmentButton
+import kotlinx.android.synthetic.main.fragment_users_list.*
 
 class UsersListFragment : BaseFragment(R.layout.fragment_users_list) {
 
@@ -23,7 +22,7 @@ class UsersListFragment : BaseFragment(R.layout.fragment_users_list) {
         DI.getScope(Scopes.APP_SCOPE).getInstance(UsersScreenNavigation::class.java)
     }
 
-    private var pagePos: Int by args<Int>()
+    private var pagePos: Int by args()
 
     override fun performOnBackPressed(): Boolean {
         usersNavigation.back()

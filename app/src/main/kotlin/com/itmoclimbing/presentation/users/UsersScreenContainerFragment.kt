@@ -2,9 +2,8 @@ package com.itmoclimbing.presentation.users
 
 import com.itmoclimbing.internal.di.DI
 import com.itmoclimbing.internal.di.Scopes
-import com.itmoclimbing.internal.navigation.screens.routes.RoutesScreenNavigation
 import com.itmoclimbing.internal.navigation.screens.users.UsersScreenNavigation
-import com.itmoclimbing.presentation.base.BaseScreenContainerFragment
+import com.itmoclimbing.presentationcommon.base.BaseScreenContainerFragment
 import ru.terrakok.cicerone.NavigatorHolder
 
 class UsersScreenContainerFragment : BaseScreenContainerFragment() {

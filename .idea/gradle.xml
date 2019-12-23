@@ -17,6 +17,11 @@
             <option value="$PROJECT_DIR$/buildSrc" />
             <option value="$PROJECT_DIR$/data" />
             <option value="$PROJECT_DIR$/domain" />
+            <option value="$PROJECT_DIR$/featureRoutes/featureRoutes" />
+            <option value="$PROJECT_DIR$/featureRoutes/featureRoutesPresentation" />
+            <option value="$PROJECT_DIR$/featureUsers/featureUsers" />
+            <option value="$PROJECT_DIR$/featureUsers/presentation" />
+            <option value="$PROJECT_DIR$/presentationCommon" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

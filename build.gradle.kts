@@ -9,6 +9,7 @@ buildscript {
     dependencies {
         classpath(BuildPlugins.androidGradlePlugin)
         classpath(BuildPlugins.kotlinGradlePlugin)
+        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion")
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
@@ -27,13 +28,11 @@ tasks.register<Delete>("clean").configure {
     delete(rootProject.buildDir)
  }
 
-extra["kotlin_version"] = "1.3.50"
 extra["staticAnalysisReportDir"] =  "$rootDir/build/reports/staticAnalysis"
 extra["staticAnalysisDir"] =  "$rootDir/staticAnalysis"
 extra["staticAnalysisEnableLint"] =  true
 extra["staticAnalysisEnableDetekt"] =  true
-extra["kotlin_version"] = "1.3.60-eap-25"
-extra.set("kotlin_version", "1.3.60-eap-25")
+extra["kotlin_version"] = "kotlinVersion"
 
 apply(from = "$rootDir/dependencies.gradle.kts")
 

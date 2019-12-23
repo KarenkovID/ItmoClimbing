@@ -5,7 +5,7 @@ import androidx.lifecycle.ViewModel
 import com.itmoclimbing.R
 import com.itmoclimbing.internal.di.DI
 import com.itmoclimbing.internal.di.Scopes
-import com.itmoclimbing.internal.navigation.screens.main.MainScreenNavigation
+import com.itmoclimbing.presentation.screens.main.MainScreenNavigation
 
 class MainViewModel : ViewModel() {
 
