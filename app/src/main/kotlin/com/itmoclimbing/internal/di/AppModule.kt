@@ -3,7 +3,7 @@ package com.itmoclimbing.internal.di
 import com.itmoclimbing.domain.navigation.AppRouter
 import com.kommander.components.domain_core.rx.RxSchedulersProvider
 import com.kommander.components.android_core.rx.RxSchedulersProviderImpl
-import com.itmoclimbing.internal.navigation.screens.root.RootScreenNavigation
+import com.itmoclimbing.presentation.screens.root.RootScreenNavigation
 import ru.terrakok.cicerone.Cicerone
 import ru.terrakok.cicerone.NavigatorHolder
 import toothpick.config.Module

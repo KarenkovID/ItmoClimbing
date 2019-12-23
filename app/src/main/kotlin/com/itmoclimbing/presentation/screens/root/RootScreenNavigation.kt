@@ -1,4 +1,4 @@
-package com.itmoclimbing.internal.navigation.screens.root
+package com.itmoclimbing.presentation.screens.root
 
 import com.itmoclimbing.domain.navigation.AppRouter
 import com.itmoclimbing.presentationcommon.internal.cicerone.FragmentScreen

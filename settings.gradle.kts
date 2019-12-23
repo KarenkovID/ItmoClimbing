@@ -8,4 +8,12 @@ val featureUsersRoot: String by extra("featureUsers")
 apply(from = "$componentsRoot/modules.gradle.kts")
 apply(from = "$featureRoutesRoot/modules.gradle.kts")
 apply(from = "$featureUsersRoot/modules.gradle.kts")
-include(":app", ":domain", ":data", ":android_core", ":featureRoutes", ":presentationCommon")
+include(
+        ":app",
+        ":domain",
+        ":data",
+        ":android_core",
+        ":featureRoutes:api",
+        ":featureUsers:api",
+        ":presentationCommon"
+)

@@ -1,7 +1,9 @@
 val featureRoutesRoot: String by extra
 
-include(":featureRoutesPresentation")
-include(":featureRoutes")
+include(
+        ":$featureRoutesRoot:api",
+        ":$featureRoutesRoot:presentation"
+)
 
-project(":featureRoutesPresentation").projectDir = File(featureRoutesRoot, "featureRoutesPresentation")
-project(":featureRoutes").projectDir = File(featureRoutesRoot, "featureRoutes")
+//project(":featureRoutesPresentation").projectDir = File(featureRoutesRoot, "featureRoutesPresentation")
+//project(":featureRoutes").projectDir = File(featureRoutesRoot, "featureRoutes")

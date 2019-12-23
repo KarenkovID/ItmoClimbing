@@ -2,7 +2,7 @@ package com.itmoclimbing.presentation.screens.main
 
 import com.itmoclimbing.domain.navigation.AppRouter
 import com.itmoclimbing.feature.routes.FeatureRoutesApi
-import com.itmoclimbing.presentation.users.UsersScreenContainerFragment
+import com.itmoclimbing.feature.users.api.FeatureUsersApi
 import com.itmoclimbing.presentationcommon.internal.cicerone.FragmentScreen
 import com.itmoclimbing.presentationcommon.internal.navigation.NestedStackScreenNavigation
 import javax.inject.Inject
@@ -17,7 +17,7 @@ class MainScreenNavigation @Inject constructor(
     }
 
     private val routesContainerScreen = FragmentScreen("ROUTES_CONTAINER_SCREEN", FeatureRoutesApi::getMainRoutesFragment)
-    private val usersContainerScreen = FragmentScreen("USERS_CONTAINER_SCREEN", UsersScreenContainerFragment.Companion::newInstance)
+    private val usersContainerScreen = FragmentScreen("USERS_CONTAINER_SCREEN", FeatureUsersApi::getUsersMainFragment)
 
     init {
         specs.add(routesContainerScreen)

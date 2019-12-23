@@ -1,4 +1,4 @@
-package com.itmoclimbing.internal.di.app
+package com.itmoclimbing.internal.di
 
 import com.itmoclimbing.domain.navigation.AppRouter
 import com.itmoclimbing.presentation.screens.main.MainScreenNavigation

@@ -10,6 +10,14 @@ apply(from = "$rootDir/dependenciesGraph.gradle")
 apply(from = "$staticAnalysisDir/lint.gradle")
 
 android {
+    //solves problem
+    //https://stackoverflow.com/questions/45232350/disable-meta-inf-generation-in-gradle-android-library-kotlin-project/45235642#45235642
+    packagingOptions {
+        exclude("META-INF/presentation_*.kotlin_module")
+        exclude("META-INF/api_*.kotlin_module")
+        exclude("META-INF/domain_*.kotlin_module")
+        exclude("META-INF/data_*.kotlin_module")
+    }
     compileSdkVersion(AndroidSdk.compile)
 
     defaultConfig {
@@ -56,6 +64,7 @@ dependencies {
     implementation(project(":domain"))
     implementation(project(":data"))
     implementation(project(Features.routes))
+    implementation(project(Features.users))
     implementation(project(Projects.presentationCommon))
     implementation(project(Projects.androidCore))
     implementation(project(Projects.domainCore))

@@ -84,6 +84,7 @@ object Projects {
 
 object Features {
 
-    const val routes = ":featureRoutes"
+    const val routes = ":featureRoutes:api"
+    const val users = ":featureUsers:api"
 
 }
