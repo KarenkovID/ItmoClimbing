@@ -5,8 +5,12 @@ import androidx.lifecycle.ViewModel
 import com.itmoclimbing.R
 import com.itmoclimbing.internal.di.DI
 import com.itmoclimbing.presentation.screens.main.MainScreenNavigation
+import com.kommander.components.android_core.viewmodel.SingleEventLiveData
+import javax.inject.Inject
 
-class MainViewModel : ViewModel() {
+class MainViewModel @Inject constructor() : ViewModel() {
+
+    val onTabSelectedLiveData = SingleEventLiveData<Int>()
 
     private val mainNavigation: MainScreenNavigation by lazy {
         DI.getAppScope().getInstance(MainScreenNavigation::class.java)
@@ -23,6 +27,10 @@ class MainViewModel : ViewModel() {
             else -> error("Unknown item id")
         }
         return true
+    }
+
+    fun selectUsers() {
+        onTabSelectedLiveData.setValue(R.id.menuItemUsers)
     }
 
 }

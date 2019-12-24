@@ -2,13 +2,15 @@ package com.itmoclimbing.presentation.main
 
 import android.os.Bundle
 import android.view.View
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.itmoclimbing.R
 import com.itmoclimbing.internal.di.DI
+import com.itmoclimbing.presentation.AppViewModelFactory
 import com.itmoclimbing.presentation.screens.main.MainScreenNavigation
 import com.itmoclimbing.presentationcommon.base.BaseFragment
 import com.itmoclimbing.presentationcommon.internal.navigation.NestedStackScreenNavigator
-import kotlinx.android.synthetic.main.fragment_main.*
+import kotlinx.android.synthetic.main.fragment_main.mainBottomNavigation
 import ru.terrakok.cicerone.Navigator
 import ru.terrakok.cicerone.NavigatorHolder
 
@@ -39,7 +41,15 @@ class MainFragment : BaseFragment(R.layout.fragment_main) {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProviders.of(this).get(MainViewModel::class.java)
+        viewModel = ViewModelProviders
+                .of(this, DI.getAppScope().getInstance(AppViewModelFactory::class.java))
+                .get(MainViewModel::class.java)
+        viewModel.onTabSelectedLiveData.observe(
+                viewLifecycleOwner,
+                Observer {
+                    mainBottomNavigation.selectedItemId = it
+                }
+        )
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

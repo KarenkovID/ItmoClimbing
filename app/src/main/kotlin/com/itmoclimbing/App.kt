@@ -7,6 +7,7 @@ class App : Application() {
 
     override fun onCreate() {
         super.onCreate()
+        DI.openRootScope()
         DI.getAppScope()
     }
 

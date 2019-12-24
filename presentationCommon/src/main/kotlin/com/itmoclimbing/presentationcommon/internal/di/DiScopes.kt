@@ -4,9 +4,11 @@ import toothpick.Toothpick
 import toothpick.config.Module
 
 object DiScopes {
-    val APP_SCOPE = Scope("APP_SCOPE")
+    val ROOT_SCOPE = Scope("ROOT_SCOPE")
+    val APP_SCOPE = Scope("APP_SCOPE", ROOT_SCOPE)
     val USERS_SCOPE = Scope("USERS_SCOPE", APP_SCOPE)
     val ROUTES_SCOPE = Scope("ROUTES_SCOPE", APP_SCOPE)
+    val ROUTES_INTERNAL_SCOPE = Scope("ROUTES_INTERNAL_SCOPE", ROUTES_SCOPE)
 }
 
 data class Scope(private val name: String, private val parent: Scope? = null) {
@@ -21,5 +23,9 @@ data class Scope(private val name: String, private val parent: Scope? = null) {
                         .openScopes(*getScopesSequence().toTypedArray())
                         .installModules(*modulesFactory())
             }
+
+    fun openScope(): toothpick.Scope = Toothpick.openScope(name)
+
+    fun closeScope() = Toothpick.closeScope(name)
 
 }

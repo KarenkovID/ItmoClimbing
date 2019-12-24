@@ -2,9 +2,10 @@ package com.itmoclimbing.feature.routes
 
 import androidx.fragment.app.Fragment
 import com.itmoclimbing.feature.routes.presentation.RoutesScreenContainerFragment
+import com.itmoclimbing.presentationcommon.features.api.FeatureRoutesApi
 
-object FeatureRoutesApi {
+class FeatureRoutesApiImpl : FeatureRoutesApi {
 
-    fun getMainRoutesFragment(): Fragment = RoutesScreenContainerFragment.newInstance()
+    override fun getRoutesFragment(): Fragment = RoutesScreenContainerFragment.newInstance()
 
 }

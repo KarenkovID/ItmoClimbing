@@ -7,6 +7,6 @@ import javax.inject.Inject
 
 class RoutesViewModelFactory @Inject constructor() : ViewModelProvider.Factory {
 
-    override fun <T : ViewModel?> create(modelClass: Class<T>): T = DI.getScopeRoutesScope().getInstance(modelClass)
+    override fun <T : ViewModel?> create(modelClass: Class<T>): T = DI.getRoutesInternalScope().getInstance(modelClass)
 
 }
