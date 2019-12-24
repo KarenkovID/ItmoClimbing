@@ -5,11 +5,10 @@ import android.view.View
 import androidx.lifecycle.ViewModelProviders
 import com.itmoclimbing.R
 import com.itmoclimbing.internal.di.DI
-import com.itmoclimbing.internal.di.Scopes
-import com.itmoclimbing.internal.navigation.NestedStackScreenNavigator
-import com.itmoclimbing.internal.navigation.screens.main.MainScreenNavigation
-import com.itmoclimbing.presentation.base.BaseFragment
-import kotlinx.android.synthetic.main.fragment_main.mainBottomNavigation
+import com.itmoclimbing.presentation.screens.main.MainScreenNavigation
+import com.itmoclimbing.presentationcommon.base.BaseFragment
+import com.itmoclimbing.presentationcommon.internal.navigation.NestedStackScreenNavigator
+import kotlinx.android.synthetic.main.fragment_main.*
 import ru.terrakok.cicerone.Navigator
 import ru.terrakok.cicerone.NavigatorHolder
 
@@ -27,12 +26,12 @@ class MainFragment : BaseFragment(R.layout.fragment_main) {
     }
 
     private val mainNavigation: MainScreenNavigation by lazy {
-        DI.getScope(Scopes.APP_SCOPE).getInstance(MainScreenNavigation::class.java)
+        DI.getAppScope().getInstance(MainScreenNavigation::class.java)
     }
 
     private val navigatorHolder: NavigatorHolder by lazy {
         DI
-                .getScope(Scopes.APP_SCOPE)
+                .getAppScope()
                 .getInstance(NavigatorHolder::class.java, MainScreenNavigation.NAME)
     }
 

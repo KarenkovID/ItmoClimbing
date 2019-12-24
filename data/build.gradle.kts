@@ -37,4 +37,8 @@ dependencies {
     implementation(DI.toothpickRuntime)
     implementation(DI.toothpickSmoothie)
     kapt(DI.toothpickCompiler)
+
+    implementation(Libraries.rxJava)
+    implementation(Libraries.rxKotlin)
+    implementation(Libraries.rxAndroid)
 }

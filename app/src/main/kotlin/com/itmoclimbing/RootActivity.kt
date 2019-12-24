@@ -1,12 +1,10 @@
 package com.itmoclimbing
 
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProviders
 import com.itmoclimbing.internal.di.DI
-import com.itmoclimbing.internal.di.Scopes
-import com.itmoclimbing.internal.navigation.screens.root.RootScreenNavigation
-import com.itmoclimbing.presentation.base.BaseActivity
+import com.itmoclimbing.presentation.screens.root.RootScreenNavigation
+import com.itmoclimbing.presentationcommon.base.BaseActivity
 import ru.terrakok.cicerone.Navigator
 import ru.terrakok.cicerone.NavigatorHolder
 import ru.terrakok.cicerone.android.support.SupportAppNavigator
@@ -20,13 +18,13 @@ class RootActivity : BaseActivity(R.layout.activity_root) {
 
     private val rootScreenNavigation: RootScreenNavigation by lazy {
         DI
-                .getScope(Scopes.APP_SCOPE)
+                .getAppScope()
                 .getInstance(RootScreenNavigation::class.java)
     }
 
     private val navigatorHolder: NavigatorHolder by lazy {
         DI
-                .getScope(Scopes.APP_SCOPE)
+                .getAppScope()
                 .getInstance(NavigatorHolder::class.java, RootScreenNavigation.NAME)
     }
 

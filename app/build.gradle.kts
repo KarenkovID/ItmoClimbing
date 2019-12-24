@@ -10,6 +10,14 @@ apply(from = "$rootDir/dependenciesGraph.gradle")
 apply(from = "$staticAnalysisDir/lint.gradle")
 
 android {
+    //solves problem
+    //https://stackoverflow.com/questions/45232350/disable-meta-inf-generation-in-gradle-android-library-kotlin-project/45235642#45235642
+    packagingOptions {
+        exclude("META-INF/presentation_*.kotlin_module")
+        exclude("META-INF/api_*.kotlin_module")
+        exclude("META-INF/domain_*.kotlin_module")
+        exclude("META-INF/data_*.kotlin_module")
+    }
     compileSdkVersion(AndroidSdk.compile)
 
     defaultConfig {
@@ -55,9 +63,12 @@ apply(from = "$rootDir/dependencies.gradle.kts")
 dependencies {
     implementation(project(":domain"))
     implementation(project(":data"))
+    implementation(project(Features.routes))
+    implementation(project(Features.users))
+    implementation(project(Projects.presentationCommon))
     implementation(project(Projects.androidCore))
+    implementation(project(Projects.domainCore))
 
-    implementation(Libraries.kotlinStdLib)
     implementation(Libraries.kotlinStdLib)
     implementation(Libraries.appCompat)
     implementation(Libraries.ktxCore)
@@ -80,12 +91,6 @@ dependencies {
 
     implementation(DebugLibraries.leakcanary)
 
-    implementation("android.arch.lifecycle:extensions:1.1.1")
-    annotationProcessor("android.arch.lifecycle:compiler:1.1.1")
-//    implementation("androidx.appcompat:appcompat:1.1.0")
-//    implementation("androidx.core:core-ktx:1.1.0")
-//    implementation("androidx.constraintlayout:constraintlayout:1.1.3")
-//    testImplementation("junit:junit:4.12")
-//    androidTestImplementation("androidx.test.ext:junit:1.1.1")
-//    androidTestImplementation("androidx.test.espresso:espresso-core:3.2.0")
+    implementation(Libraries.androidLifecycleExtensions)
+    annotationProcessor(Libraries.androidLifecycleCompiler)
 }

@@ -4,13 +4,12 @@ import android.view.MenuItem
 import androidx.lifecycle.ViewModel
 import com.itmoclimbing.R
 import com.itmoclimbing.internal.di.DI
-import com.itmoclimbing.internal.di.Scopes
-import com.itmoclimbing.internal.navigation.screens.main.MainScreenNavigation
+import com.itmoclimbing.presentation.screens.main.MainScreenNavigation
 
 class MainViewModel : ViewModel() {
 
     private val mainNavigation: MainScreenNavigation by lazy {
-        DI.getScope(Scopes.APP_SCOPE).getInstance(MainScreenNavigation::class.java)
+        DI.getAppScope().getInstance(MainScreenNavigation::class.java)
     }
 
     init {

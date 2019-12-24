@@ -12,8 +12,10 @@ object BuildPlugins {
     const val androidGradlePlugin = "com.android.tools.build:gradle:${Versions.buildToolsVersion}"
     const val kotlinGradlePlugin = "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion"
     const val androidApplication = "com.android.application"
+    const val androidLibrary = "com.android.library"
     const val kotlinAndroid = "kotlin-android"
     const val kotlinAndroidExtensions = "kotlin-android-extensions"
+    const val kotlinKapt = "kotlin-kapt"
 
 }
 
@@ -29,6 +31,7 @@ object Libraries {
         const val constraintLayout = "1.1.2"
         const val ktx = "1.0.0"
         const val material = "1.2.0-alpha03"
+        const val androidLifecycleVersion = "1.1.1"
     }
 
     const val kotlinStdLib = "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion"
@@ -39,6 +42,8 @@ object Libraries {
     const val cicerone = "ru.terrakok.cicerone:cicerone:5.0.0"
     const val adapterDelegates = "com.hannesdorfmann:adapterdelegates4:4.2.0"
     const val timber = "com.jakewharton.timber:timber:4.7.1"
+    const val androidLifecycleExtensions = "android.arch.lifecycle:extensions:${Versions.androidLifecycleVersion}"
+    const val androidLifecycleCompiler = "android.arch.lifecycle:compiler:${Versions.androidLifecycleVersion}"
 
     const val rxJava = "io.reactivex.rxjava2:rxjava:2.2.16"
     const val rxKotlin = "io.reactivex.rxjava2:rxkotlin:2.4.0"
@@ -73,5 +78,13 @@ object Projects {
 
     const val androidCore = ":android_core"
     const val domainCore = ":domain_core"
+    const val presentationCommon = ":presentationCommon"
+
+}
+
+object Features {
+
+    const val routes = ":featureRoutes:api"
+    const val users = ":featureUsers:api"
 
 }

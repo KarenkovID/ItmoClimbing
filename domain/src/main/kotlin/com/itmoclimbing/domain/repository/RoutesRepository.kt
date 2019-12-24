@@ -2,13 +2,15 @@ package com.itmoclimbing.domain.repository
 
 import com.itmoclimbing.domain.model.Route
 import com.itmoclimbing.domain.model.User
+import io.reactivex.Completable
+import io.reactivex.Single
 
 interface RoutesRepository {
 
-    fun getAllRoutes(): List<Route>
+    fun getAllRoutes(): Single<List<Route>>
 
-    fun getRoutesSolvedByUser(user: User): List<Route>
+    fun addRoute(route: Route): Completable
 
-    fun getRoutesSettedByUser(user: User): List<Route>
+    fun removeRoute(routeId: String): Completable
 
 }
