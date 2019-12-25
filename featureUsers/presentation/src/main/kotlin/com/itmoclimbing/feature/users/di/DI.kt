@@ -7,8 +7,8 @@ import toothpick.Scope
 
 internal object DI {
 
-    fun getUsersScope(): Scope = synchronized(this) {
-        DiScopes.USERS_SCOPE.openWithModules {
+    fun getUsersInternalScope(): Scope = synchronized(this) {
+        DiScopes.USERS_INTERNAL_SCOPE.openWithModules {
             arrayOf(
                     UserModule(),
                     UsersNavigationModule()

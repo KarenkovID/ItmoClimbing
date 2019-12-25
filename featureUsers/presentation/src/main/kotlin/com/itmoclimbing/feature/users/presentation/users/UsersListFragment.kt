@@ -20,7 +20,7 @@ class UsersListFragment : BaseFragment(R.layout.fragment_users_list) {
     }
 
     private val usersNavigation: UsersScreenNavigation by lazy {
-        DI.getUsersScope().getInstance(UsersScreenNavigation::class.java)
+        DI.getUsersInternalScope().getInstance(UsersScreenNavigation::class.java)
     }
 
     private var pagePos: Int by args()

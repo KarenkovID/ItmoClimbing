@@ -13,18 +13,18 @@ class UsersScreenContainerFragment : BaseScreenContainerFragment() {
     }
 
     init {
-        DI.getUsersScope()
+        DI.getUsersInternalScope()
     }
 
     override val routesNavigation: UsersScreenNavigation by lazy {
         DI
-                .getUsersScope()
+                .getUsersInternalScope()
                 .getInstance(UsersScreenNavigation::class.java)
     }
 
     override val navigatorHolder: NavigatorHolder by lazy {
         DI
-                .getUsersScope()
+                .getUsersInternalScope()
                 .getInstance(NavigatorHolder::class.java, UsersScreenNavigation.NAME)
     }
 

@@ -23,6 +23,8 @@ class RoutesMediator : BaseMediator<FeatureRoutesApi, RoutesComponent, RoutesDep
 
         override fun selectUsersTab() = mediatorManager.appMediator.apiStub.selectUsersTab()
 
+        override fun getUsersFragment(): Fragment = mediatorManager.usersMediator.apiStub.getUsersFragment()
+
     }
 
 }

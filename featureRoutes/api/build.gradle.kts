@@ -8,6 +8,10 @@ plugins {
 android {
     compileSdkVersion(AndroidSdk.compile)
 
+    defaultConfig {
+        minSdkVersion(AndroidSdk.min)
+    }
+
     sourceSets {
         getByName("main").java.srcDirs("src/main/kotlin")
     }

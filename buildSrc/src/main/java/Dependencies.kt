@@ -30,7 +30,7 @@ object Libraries {
         const val jetpack = "1.2.0-alpha01"
         const val constraintLayout = "1.1.2"
         const val ktx = "1.0.0"
-        const val material = "1.2.0-alpha03"
+        const val material = "1.0.0"
         const val androidLifecycleVersion = "1.1.1"
     }
 

@@ -3,6 +3,7 @@ package com.itmoclimbing.internal.feature
 import androidx.fragment.app.Fragment
 import com.itmoclimbing.features.common.BaseMediator
 import com.itmoclimbing.features.common.api.FeatureAppApi
+import com.itmoclimbing.features.common.dependencies.AppDependencies
 
 class AppMediator : BaseMediator<FeatureAppApi, AppComponent, AppDependencies>() {
 
