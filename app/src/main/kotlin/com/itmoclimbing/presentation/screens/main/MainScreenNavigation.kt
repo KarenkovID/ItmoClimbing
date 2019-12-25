@@ -1,8 +1,8 @@
 package com.itmoclimbing.presentation.screens.main
 
-import com.itmoclimbing.domain.navigation.AppRouter
+import com.itmoclimbing.domainCommon.navigation.AppRouter
 import com.itmoclimbing.feature.users.api.FeatureUsersApi
-import com.itmoclimbing.presentationcommon.features.MediatorManager
+import com.itmoclimbing.features.common.MediatorManager
 import com.itmoclimbing.presentationcommon.internal.cicerone.FragmentScreen
 import com.itmoclimbing.presentationcommon.internal.navigation.NestedStackScreenNavigation
 import javax.inject.Inject

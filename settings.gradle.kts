@@ -1,4 +1,3 @@
-include(":presentationCommon")
 rootProject.name="itmoclimbing"
 
 val componentsRoot: String by extra("KommanderComponents")
@@ -10,10 +9,11 @@ apply(from = "$featureRoutesRoot/modules.gradle.kts")
 apply(from = "$featureUsersRoot/modules.gradle.kts")
 include(
         ":app",
-        ":domain",
-        ":data",
+        ":domainCommon",
+        ":dataCommon",
         ":android_core",
         ":featureRoutes:api",
         ":featureUsers:api",
-        ":presentationCommon"
+        ":presentationCommon",
+        ":featuresCommon"
 )

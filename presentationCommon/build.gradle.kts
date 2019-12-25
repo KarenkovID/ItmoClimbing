@@ -20,8 +20,8 @@ android {
 }
 
 dependencies {
-    implementation(project(":domain"))
-    implementation(project(":data"))
+    implementation(project(":domainCommon"))
+    implementation(project(":dataCommon"))
     implementation(project(Projects.androidCore))
 
     implementation(Libraries.kotlinStdLib)

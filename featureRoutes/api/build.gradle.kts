@@ -14,11 +14,11 @@ android {
 
 }
 
-apply(from = "$rootDir/dependencies.gradle.kts")
-
 dependencies {
     implementation(project(":featureRoutes:presentation"))
+    implementation(project(":featuresCommon"))
     implementation(project(Projects.presentationCommon))
+    implementation(project(Projects.featuresCommon))
 
     implementation(Libraries.kotlinStdLib)
     implementation(Libraries.appCompat)

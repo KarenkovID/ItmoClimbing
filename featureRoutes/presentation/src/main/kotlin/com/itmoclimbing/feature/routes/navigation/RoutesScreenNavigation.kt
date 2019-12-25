@@ -1,7 +1,7 @@
 package com.itmoclimbing.feature.routes.navigation
 
 import android.util.Log
-import com.itmoclimbing.domain.navigation.AppRouter
+import com.itmoclimbing.domainCommon.navigation.AppRouter
 import com.itmoclimbing.feature.routes.presentation.RoutesListFragment
 import com.itmoclimbing.presentationcommon.internal.cicerone.FragmentScreen
 import com.itmoclimbing.presentationcommon.internal.navigation.ScreenNavigation

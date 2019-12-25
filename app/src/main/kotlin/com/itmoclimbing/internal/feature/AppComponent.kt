@@ -1,10 +1,9 @@
 package com.itmoclimbing.internal.feature
 
 import com.itmoclimbing.presentation.main.MainViewModel
-import com.itmoclimbing.presentation.screens.main.MainScreenNavigation
-import com.itmoclimbing.presentationcommon.features.FeatureComponent
-import com.itmoclimbing.presentationcommon.features.api.FeatureAppApi
-import com.itmoclimbing.presentationcommon.internal.di.DiScopes
+import com.itmoclimbing.features.common.FeatureComponent
+import com.itmoclimbing.features.common.api.FeatureAppApi
+import com.itmoclimbing.features.common.di.DiScopes
 
 class AppComponent(dependencies: AppDependencies) : FeatureComponent<FeatureAppApi> {
 

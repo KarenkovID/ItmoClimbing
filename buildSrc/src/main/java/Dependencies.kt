@@ -79,6 +79,7 @@ object Projects {
     const val androidCore = ":android_core"
     const val domainCore = ":domain_core"
     const val presentationCommon = ":presentationCommon"
+    const val featuresCommon = ":featuresCommon"
 
 }
 

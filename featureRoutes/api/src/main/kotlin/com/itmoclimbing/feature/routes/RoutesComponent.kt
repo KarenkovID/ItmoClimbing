@@ -1,9 +1,9 @@
 package com.itmoclimbing.feature.routes
 
-import com.itmoclimbing.presentationcommon.features.FeatureComponent
-import com.itmoclimbing.presentationcommon.features.api.FeatureRoutesApi
-import com.itmoclimbing.presentationcommon.features.dependencies.RoutesDependencies
-import com.itmoclimbing.presentationcommon.internal.di.DiScopes
+import com.itmoclimbing.features.common.FeatureComponent
+import com.itmoclimbing.features.common.api.FeatureRoutesApi
+import com.itmoclimbing.features.common.dependencies.RoutesDependencies
+import com.itmoclimbing.features.common.di.DiScopes
 
 class RoutesComponent(routesDependencies: RoutesDependencies): FeatureComponent<FeatureRoutesApi> {
 

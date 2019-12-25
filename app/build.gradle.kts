@@ -33,7 +33,7 @@ android {
             annotationProcessorOptions {
                 arguments = mapOf(
                         "toothpick_registry_package_name" to "com.itmoclimbing.app",
-                        "toothpick_registry_children_package_names" to "com.itmoclimbing.domain,com.itmoclimbing.data",
+                        "toothpick_registry_children_package_names" to "com.itmoclimbing.domainCommon,com.itmoclimbing.dataCommon",
                         "support_obfuscation" to "true"
                 )
             }
@@ -58,16 +58,15 @@ android {
 
 }
 
-apply(from = "$rootDir/dependencies.gradle.kts")
-
 dependencies {
-    implementation(project(":domain"))
-    implementation(project(":data"))
+    implementation(project(":domainCommon"))
+    implementation(project(":dataCommon"))
     implementation(project(Features.routes))
     implementation(project(Features.users))
     implementation(project(Projects.presentationCommon))
     implementation(project(Projects.androidCore))
     implementation(project(Projects.domainCore))
+    implementation(project(Projects.featuresCommon))
 
     implementation(Libraries.kotlinStdLib)
     implementation(Libraries.appCompat)

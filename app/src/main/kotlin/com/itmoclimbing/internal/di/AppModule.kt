@@ -1,15 +1,11 @@
 package com.itmoclimbing.internal.di
 
-import com.itmoclimbing.domain.navigation.AppRouter
-import com.itmoclimbing.feature.routes.RoutesMediator
-import com.itmoclimbing.internal.feature.AppMediator
+import com.itmoclimbing.domainCommon.navigation.AppRouter
 import com.itmoclimbing.presentation.AppViewModelFactory
 import com.itmoclimbing.presentation.main.MainViewModel
 import com.kommander.components.domain_core.rx.RxSchedulersProvider
 import com.kommander.components.android_core.rx.RxSchedulersProviderImpl
 import com.itmoclimbing.presentation.screens.root.RootScreenNavigation
-import com.itmoclimbing.presentationcommon.features.FeatureMediator
-import com.itmoclimbing.presentationcommon.features.MediatorManager
 import ru.terrakok.cicerone.Cicerone
 import ru.terrakok.cicerone.NavigatorHolder
 import toothpick.config.Module

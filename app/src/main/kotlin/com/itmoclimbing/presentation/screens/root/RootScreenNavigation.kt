@@ -1,6 +1,6 @@
 package com.itmoclimbing.presentation.screens.root
 
-import com.itmoclimbing.domain.navigation.AppRouter
+import com.itmoclimbing.domainCommon.navigation.AppRouter
 import com.itmoclimbing.presentationcommon.internal.cicerone.FragmentScreen
 import com.itmoclimbing.presentationcommon.internal.navigation.ScreenNavigation
 import com.itmoclimbing.presentation.main.MainFragment

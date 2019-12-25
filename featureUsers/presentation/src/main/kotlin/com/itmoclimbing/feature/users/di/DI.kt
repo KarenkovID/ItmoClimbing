@@ -2,7 +2,7 @@ package com.itmoclimbing.feature.users.di
 
 import com.itmoclimbing.feature.users.di.modules.UserModule
 import com.itmoclimbing.feature.users.di.modules.UsersNavigationModule
-import com.itmoclimbing.presentationcommon.internal.di.DiScopes
+import com.itmoclimbing.features.common.di.DiScopes
 import toothpick.Scope
 
 internal object DI {

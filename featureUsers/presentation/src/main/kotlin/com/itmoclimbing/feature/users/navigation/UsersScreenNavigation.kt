@@ -1,6 +1,6 @@
 package com.itmoclimbing.feature.users.navigation
 
-import com.itmoclimbing.domain.navigation.AppRouter
+import com.itmoclimbing.domainCommon.navigation.AppRouter
 import com.itmoclimbing.presentationcommon.internal.cicerone.FragmentScreen
 import com.itmoclimbing.presentationcommon.internal.navigation.ScreenNavigation
 import com.itmoclimbing.feature.users.presentation.users.UsersListFragment

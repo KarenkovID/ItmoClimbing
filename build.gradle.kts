@@ -34,7 +34,5 @@ extra["staticAnalysisEnableLint"] =  true
 extra["staticAnalysisEnableDetekt"] =  true
 extra["kotlin_version"] = "kotlinVersion"
 
-apply(from = "$rootDir/dependencies.gradle.kts")
-
 val staticAnalysisDir: String by extra
 apply(from = "$staticAnalysisDir/staticAnalysis.gradle")

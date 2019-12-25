@@ -1,6 +1,6 @@
 package com.itmoclimbing.presentationcommon.internal.navigation
 
-import com.itmoclimbing.domain.navigation.AppRouter
+import com.itmoclimbing.domainCommon.navigation.AppRouter
 import ru.terrakok.cicerone.Screen
 import ru.terrakok.cicerone.android.support.SupportAppScreen
 

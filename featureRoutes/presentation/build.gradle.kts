@@ -18,14 +18,13 @@ android {
 
 }
 
-apply(from = "$rootDir/dependencies.gradle.kts")
-
 dependencies {
-    implementation(project(":domain"))
-    implementation(project(":data"))
+    implementation(project(":domainCommon"))
+    implementation(project(":dataCommon"))
     implementation(project(Projects.androidCore))
     implementation(project(Projects.domainCore))
     implementation(project(Projects.presentationCommon))
+    implementation(project(Projects.featuresCommon))
 
     implementation(Libraries.kotlinStdLib)
     implementation(Libraries.kotlinStdLib)

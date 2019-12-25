@@ -2,7 +2,7 @@ package com.itmoclimbing.internal.di
 
 import com.itmoclimbing.feature.routes.RoutesMediator
 import com.itmoclimbing.internal.feature.AppMediator
-import com.itmoclimbing.presentationcommon.features.MediatorManager
+import com.itmoclimbing.features.common.MediatorManager
 import toothpick.config.Module
 
 class RootModule : Module() {

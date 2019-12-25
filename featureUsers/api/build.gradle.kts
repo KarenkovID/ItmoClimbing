@@ -14,10 +14,9 @@ android {
 
 }
 
-apply(from = "$rootDir/dependencies.gradle.kts")
-
 dependencies {
     implementation(project(":featureUsers:presentation"))
+    implementation(project(Projects.featuresCommon))
 
     implementation(Libraries.kotlinStdLib)
     implementation(Libraries.appCompat)

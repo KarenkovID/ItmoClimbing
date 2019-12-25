@@ -1,6 +1,6 @@
 package com.itmoclimbing.feature.routes.di.modules
 
-import com.itmoclimbing.domain.navigation.AppRouter
+import com.itmoclimbing.domainCommon.navigation.AppRouter
 import com.itmoclimbing.feature.routes.navigation.RoutesScreenNavigation
 import ru.terrakok.cicerone.Cicerone
 import ru.terrakok.cicerone.NavigatorHolder

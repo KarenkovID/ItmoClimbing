@@ -1,7 +1,7 @@
 package com.itmoclimbing.feature.routes.di.modules
 
-import com.itmoclimbing.data.repository.RoutesRepositoryStub
-import com.itmoclimbing.domain.repository.RoutesRepository
+import com.itmoclimbing.dataCommon.repository.RoutesRepositoryStub
+import com.itmoclimbing.domainCommon.repository.RoutesRepository
 import com.itmoclimbing.feature.routes.presentation.RoutesListViewModel
 import com.itmoclimbing.feature.routes.presentation.RoutesViewModelFactory
 import toothpick.config.Module

@@ -1,9 +1,9 @@
 package com.itmoclimbing.feature.routes
 
 import androidx.fragment.app.Fragment
-import com.itmoclimbing.presentationcommon.features.BaseMediator
-import com.itmoclimbing.presentationcommon.features.api.FeatureRoutesApi
-import com.itmoclimbing.presentationcommon.features.dependencies.RoutesDependencies
+import com.itmoclimbing.features.common.BaseMediator
+import com.itmoclimbing.features.common.api.FeatureRoutesApi
+import com.itmoclimbing.features.common.dependencies.RoutesDependencies
 
 class RoutesMediator : BaseMediator<FeatureRoutesApi, RoutesComponent, RoutesDependencies>() {
 

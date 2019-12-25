@@ -1,6 +1,6 @@
 package com.itmoclimbing.internal.di
 
-import com.itmoclimbing.presentationcommon.internal.di.DiScopes
+import com.itmoclimbing.features.common.di.DiScopes
 import toothpick.Scope
 
 internal object DI {

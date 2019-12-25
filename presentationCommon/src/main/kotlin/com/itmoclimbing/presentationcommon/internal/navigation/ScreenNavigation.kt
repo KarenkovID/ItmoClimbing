@@ -1,8 +1,6 @@
 package com.itmoclimbing.presentationcommon.internal.navigation
 
-import com.itmoclimbing.domain.navigation.AppRouter
-import ru.terrakok.cicerone.Screen
-import ru.terrakok.cicerone.android.support.SupportAppNavigator
+import com.itmoclimbing.domainCommon.navigation.AppRouter
 
 open class ScreenNavigation(
         protected val router: AppRouter
