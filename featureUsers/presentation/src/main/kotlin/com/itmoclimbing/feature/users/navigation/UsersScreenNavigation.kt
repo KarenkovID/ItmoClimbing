@@ -1,13 +1,14 @@
 package com.itmoclimbing.feature.users.navigation
 
 import com.itmoclimbing.domainCommon.navigation.AppRouter
+import com.itmoclimbing.feature.users.presentation.users.UsersListFragment
 import com.itmoclimbing.presentationcommon.internal.cicerone.FragmentScreen
 import com.itmoclimbing.presentationcommon.internal.navigation.ScreenNavigation
-import com.itmoclimbing.feature.users.presentation.users.UsersListFragment
-import javax.inject.Inject
+import toothpick.InjectConstructor
 import javax.inject.Named
 
-class UsersScreenNavigation @Inject constructor(
+@InjectConstructor
+class UsersScreenNavigation(
         @Named(NAME) appRouter: AppRouter
 ) : ScreenNavigation(appRouter) {
 

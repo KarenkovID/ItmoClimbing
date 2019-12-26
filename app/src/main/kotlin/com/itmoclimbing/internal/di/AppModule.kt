@@ -9,17 +9,18 @@ import com.itmoclimbing.presentation.screens.root.RootScreenNavigation
 import ru.terrakok.cicerone.Cicerone
 import ru.terrakok.cicerone.NavigatorHolder
 import toothpick.config.Module
+import toothpick.ktp.binding.bind
 
 class AppModule : Module() {
 
     init {
         val cicerone = Cicerone.create(AppRouter())
-        bind(AppRouter::class.java).withName(RootScreenNavigation.NAME).toInstance(cicerone.router)
-        bind(NavigatorHolder::class.java).withName(RootScreenNavigation.NAME).toInstance(cicerone.navigatorHolder)
-        bind(RootScreenNavigation::class.java).to(RootScreenNavigation::class.java).singleton()
-        bind(RxSchedulersProvider::class.java).to(RxSchedulersProviderImpl::class.java).singleton()
-        bind(AppViewModelFactory::class.java).singleton()
-        bind(MainViewModel::class.java).singleton()
+        bind<AppRouter>().withName(RootScreenNavigation.NAME).toInstance(cicerone.router)
+        bind<NavigatorHolder>().withName(RootScreenNavigation.NAME).toInstance(cicerone.navigatorHolder)
+        bind<RootScreenNavigation>().singleton()
+        bind<RxSchedulersProvider>().toClass<RxSchedulersProviderImpl>().singleton()
+        bind<AppViewModelFactory>().singleton().releasable()
+        bind<MainViewModel>().singleton().releasable()
     }
 
 }

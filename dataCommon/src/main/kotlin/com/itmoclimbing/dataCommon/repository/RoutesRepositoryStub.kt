@@ -4,9 +4,10 @@ import com.itmoclimbing.domainCommon.model.Route
 import com.itmoclimbing.domainCommon.repository.RoutesRepository
 import io.reactivex.Completable
 import io.reactivex.Single
-import javax.inject.Inject
+import toothpick.InjectConstructor
 
-class RoutesRepositoryStub @Inject constructor() : RoutesRepository {
+@InjectConstructor
+class RoutesRepositoryStub : RoutesRepository {
 
     override fun getAllRoutes(): Single<List<Route>> = Single.just(emptyList())
 

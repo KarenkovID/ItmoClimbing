@@ -48,8 +48,6 @@ dependencies {
     implementation(Libraries.rxKotlin)
     implementation(Libraries.rxAndroid)
 
-    implementation(DebugLibraries.leakcanary)
-
     implementation(Libraries.androidLifecycleExtensions)
     implementation(Libraries.androidLifecycleCompiler)
 }

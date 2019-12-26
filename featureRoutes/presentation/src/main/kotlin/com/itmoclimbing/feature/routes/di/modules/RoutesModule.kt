@@ -5,13 +5,14 @@ import com.itmoclimbing.domainCommon.repository.RoutesRepository
 import com.itmoclimbing.feature.routes.presentation.RoutesListViewModel
 import com.itmoclimbing.feature.routes.presentation.RoutesViewModelFactory
 import toothpick.config.Module
+import toothpick.ktp.binding.bind
 
 internal class RoutesModule : Module() {
 
     init {
-        bind(RoutesRepository::class.java).to(RoutesRepositoryStub::class.java).singleton()
-        bind(RoutesViewModelFactory::class.java).singleton()
-        bind(RoutesListViewModel::class.java).to(RoutesListViewModel::class.java)
+        bind<RoutesRepository>().toClass<RoutesRepositoryStub>().singleton()
+        bind<RoutesViewModelFactory>().singleton().releasable()
+        bind<RoutesListViewModel>().singleton().releasable()
     }
 
 }

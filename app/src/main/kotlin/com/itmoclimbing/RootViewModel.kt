@@ -1,16 +1,11 @@
 package com.itmoclimbing
 
 import androidx.lifecycle.ViewModel
-import com.itmoclimbing.internal.di.DI
 import com.itmoclimbing.presentation.screens.root.RootScreenNavigation
+import toothpick.InjectConstructor
 
-class RootViewModel : ViewModel() {
-
-    private val rootScreenNavigation: RootScreenNavigation by lazy {
-        DI
-                .getAppScope()
-                .getInstance(RootScreenNavigation::class.java)
-    }
+@InjectConstructor
+class RootViewModel(rootScreenNavigation: RootScreenNavigation) : ViewModel() {
 
     init {
         rootScreenNavigation.openMainAsRoot()

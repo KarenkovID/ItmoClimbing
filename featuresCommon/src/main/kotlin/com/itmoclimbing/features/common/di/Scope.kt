@@ -1,7 +1,7 @@
 package com.itmoclimbing.features.common.di
 
-import toothpick.Toothpick
 import toothpick.config.Module
+import toothpick.ktp.KTP
 
 class Scope(
         private val name: String,
@@ -11,16 +11,16 @@ class Scope(
     private fun getScopesSequence(): List<String> = parent?.getScopesSequence().orEmpty() + name
 
     fun openWithModules(modulesFactory: () -> Array<Module>): toothpick.Scope =
-            if (Toothpick.isScopeOpen(name)) {
-                Toothpick.openScope(name)
+            if (KTP.isScopeOpen(name)) {
+                KTP.openScope(name)
             } else {
-                Toothpick
+                KTP
                         .openScopes(*getScopesSequence().toTypedArray())
                         .installModules(*modulesFactory())
             }
 
-    fun openScope(): toothpick.Scope = Toothpick.openScope(name)
+    fun openScope(): toothpick.Scope = KTP.openScopes(*getScopesSequence().toTypedArray())
 
-    fun closeScope() = Toothpick.closeScope(name)
+    fun closeScope() = KTP.closeScope(name)
 
 }

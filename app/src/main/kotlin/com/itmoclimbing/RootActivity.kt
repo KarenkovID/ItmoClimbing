@@ -1,13 +1,16 @@
 package com.itmoclimbing
 
 import android.os.Bundle
+import androidx.annotation.Keep
 import androidx.lifecycle.ViewModelProviders
 import com.itmoclimbing.internal.di.DI
+import com.itmoclimbing.presentation.AppViewModelFactory
 import com.itmoclimbing.presentation.screens.root.RootScreenNavigation
 import com.itmoclimbing.presentationcommon.base.BaseActivity
 import ru.terrakok.cicerone.Navigator
 import ru.terrakok.cicerone.NavigatorHolder
 import ru.terrakok.cicerone.android.support.SupportAppNavigator
+import toothpick.ktp.extension.getInstance
 
 class RootActivity : BaseActivity(R.layout.activity_root) {
 
@@ -28,9 +31,12 @@ class RootActivity : BaseActivity(R.layout.activity_root) {
                 .getInstance(NavigatorHolder::class.java, RootScreenNavigation.NAME)
     }
 
+    @Keep
+    private lateinit var model: RootViewModel
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val model = ViewModelProviders.of(this).get(RootViewModel::class.java)
+        model = ViewModelProviders.of(this, DI.getAppScope().getInstance<AppViewModelFactory>()).get(RootViewModel::class.java)
     }
 
     override fun onResumeFragments() {

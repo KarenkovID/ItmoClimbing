@@ -5,10 +5,11 @@ import com.itmoclimbing.domainCommon.navigation.AppRouter
 import com.itmoclimbing.feature.routes.presentation.RoutesListFragment
 import com.itmoclimbing.presentationcommon.internal.cicerone.FragmentScreen
 import com.itmoclimbing.presentationcommon.internal.navigation.ScreenNavigation
-import javax.inject.Inject
+import toothpick.InjectConstructor
 import javax.inject.Named
 
-class RoutesScreenNavigation @Inject constructor(
+@InjectConstructor
+class RoutesScreenNavigation(
         @Named(NAME) appRouter: AppRouter
 ) : ScreenNavigation(appRouter) {
 

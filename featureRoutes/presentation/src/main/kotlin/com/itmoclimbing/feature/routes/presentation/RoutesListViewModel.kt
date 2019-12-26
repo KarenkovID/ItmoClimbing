@@ -3,15 +3,16 @@ package com.itmoclimbing.feature.routes.presentation
 import androidx.lifecycle.MutableLiveData
 import com.itmoclimbing.domainCommon.model.Route
 import com.itmoclimbing.domainCommon.repository.RoutesRepository
+import com.itmoclimbing.features.common.dependencies.RoutesDependencies
 import com.itmoclimbing.internal.viewmodel.livedata.BaseViewModel
 import com.itmoclimbing.internal.viewmodel.livedata.dispatchTo
-import com.itmoclimbing.features.common.dependencies.RoutesDependencies
 import com.itmoclimbing.presentationcommon.internal.viewmodel.livedata.ContentEvent
 import com.kommander.components.android_core.extensions.schedulersIoToMain
 import com.kommander.components.domain_core.rx.RxSchedulersProvider
-import javax.inject.Inject
+import toothpick.InjectConstructor
 
-class RoutesListViewModel @Inject constructor(
+@InjectConstructor
+class RoutesListViewModel(
         private val routesRepository: RoutesRepository,
         private val schedulersProvider: RxSchedulersProvider,
         private val routesDependencies: RoutesDependencies

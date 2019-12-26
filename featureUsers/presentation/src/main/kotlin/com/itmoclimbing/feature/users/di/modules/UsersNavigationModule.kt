@@ -5,14 +5,15 @@ import com.itmoclimbing.feature.users.navigation.UsersScreenNavigation
 import ru.terrakok.cicerone.Cicerone
 import ru.terrakok.cicerone.NavigatorHolder
 import toothpick.config.Module
+import toothpick.ktp.binding.bind
 
 class UsersNavigationModule : Module() {
 
     init {
         val cicerone = Cicerone.create(AppRouter())
-        bind(AppRouter::class.java).withName(UsersScreenNavigation.NAME).toInstance(cicerone.router)
-        bind(NavigatorHolder::class.java).withName(UsersScreenNavigation.NAME).toInstance(cicerone.navigatorHolder)
-        bind(UsersScreenNavigation::class.java).to(UsersScreenNavigation::class.java).singleton()
+        bind<AppRouter>().withName(UsersScreenNavigation.NAME).toInstance(cicerone.router)
+        bind<NavigatorHolder>().withName(UsersScreenNavigation.NAME).toInstance(cicerone.navigatorHolder)
+        bind<UsersScreenNavigation>().singleton()
     }
 
 }

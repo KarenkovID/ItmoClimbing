@@ -5,11 +5,13 @@ import com.itmoclimbing.features.common.FeatureComponent
 import com.itmoclimbing.features.common.api.FeatureAppApi
 import com.itmoclimbing.features.common.dependencies.AppDependencies
 import com.itmoclimbing.features.common.di.DiScopes
+import com.itmoclimbing.features.common.di.installSingleInstanceModule
+import toothpick.ktp.binding.module
 
 class AppComponent(dependencies: AppDependencies) : FeatureComponent<FeatureAppApi> {
 
     init {
-        DiScopes.APP_SCOPE.openScope().installModules(DependenciesModule(dependencies))
+        DiScopes.APP_SCOPE.openScope().installSingleInstanceModule(dependencies)
     }
 
     override fun api(): FeatureAppApi = object : FeatureAppApi {

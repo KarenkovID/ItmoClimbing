@@ -4,10 +4,11 @@ import com.itmoclimbing.domainCommon.navigation.AppRouter
 import com.itmoclimbing.features.common.MediatorManager
 import com.itmoclimbing.presentationcommon.internal.cicerone.FragmentScreen
 import com.itmoclimbing.presentationcommon.internal.navigation.NestedStackScreenNavigation
-import javax.inject.Inject
+import toothpick.InjectConstructor
 import javax.inject.Named
 
-class MainScreenNavigation @Inject constructor(
+@InjectConstructor
+class MainScreenNavigation(
         @Named(NAME) router: AppRouter,
         mediatorManager: MediatorManager
 ) : NestedStackScreenNavigation(router) {

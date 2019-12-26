@@ -20,6 +20,7 @@ internal class RoutesListFragment : BaseFragment(R.layout.fragment_routes_list) 
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
+        resources
         viewModel = ViewModelProviders
                 .of(this, DI.getRoutesInternalScope().getInstance(RoutesViewModelFactory::class.java))
                 .get(RoutesListViewModel::class.java)

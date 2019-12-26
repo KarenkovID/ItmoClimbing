@@ -32,8 +32,6 @@ android {
         javaCompileOptions {
             annotationProcessorOptions {
                 arguments = mapOf(
-                        "toothpick_registry_package_name" to "com.itmoclimbing.app",
-                        "toothpick_registry_children_package_names" to "com.itmoclimbing.domainCommon,com.itmoclimbing.dataCommon",
                         "support_obfuscation" to "true"
                 )
             }
@@ -42,13 +40,16 @@ android {
 
     buildTypes {
         getByName("release") {
-            isMinifyEnabled = false
+            isShrinkResources = true
+            isMinifyEnabled = true
             setProguardFiles(
                     listOf(
                             getDefaultProguardFile("proguard-android-optimize.txt"),
+                            "toothpick.pro",
                             "proguard-rules.pro"
                     )
             )
+            signingConfig = signingConfigs["debug"]
         }
     }
 
@@ -88,7 +89,7 @@ dependencies {
     implementation(Libraries.rxKotlin)
     implementation(Libraries.rxAndroid)
 
-    implementation(DebugLibraries.leakcanary)
+    debugImplementation(DebugLibraries.leakcanary)
 
     implementation(Libraries.androidLifecycleExtensions)
     annotationProcessor(Libraries.androidLifecycleCompiler)

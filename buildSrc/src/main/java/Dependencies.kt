@@ -69,7 +69,7 @@ object TestLibraries {
 object DI {
     private const val toothpick = "3.1.0"
 
-    const val toothpickRuntime = "com.github.stephanenicolas.toothpick:toothpick-runtime:$toothpick"
+    const val toothpickRuntime = "com.github.stephanenicolas.toothpick:ktp:$toothpick"
     const val toothpickSmoothie = "com.github.stephanenicolas.toothpick:smoothie:$toothpick"
     const val toothpickCompiler = "com.github.stephanenicolas.toothpick:toothpick-compiler:$toothpick"
 }

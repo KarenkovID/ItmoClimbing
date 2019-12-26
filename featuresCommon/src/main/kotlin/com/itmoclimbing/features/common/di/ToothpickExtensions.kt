@@ -1,12 +1,11 @@
 package com.itmoclimbing.features.common.di
 
 import toothpick.Scope
-import toothpick.config.Module
+import toothpick.ktp.binding.bind
+import toothpick.ktp.binding.module
 
-inline fun <reified T : Any> Scope.installSingleInstanceModule(instance: T) = this.installModules(
-        object : Module() {
-            init {
-                bind(T::class.java).toInstance(instance)
-            }
+inline fun <reified T : Any> Scope.installSingleInstanceModule(instance: T): Scope = this.installModules(
+        module {
+            bind<T>().toInstance(instance)
         }
 )

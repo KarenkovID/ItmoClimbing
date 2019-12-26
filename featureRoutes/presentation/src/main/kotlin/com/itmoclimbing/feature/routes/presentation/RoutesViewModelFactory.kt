@@ -3,9 +3,10 @@ package com.itmoclimbing.feature.routes.presentation
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.itmoclimbing.feature.routes.di.DI
-import javax.inject.Inject
+import toothpick.InjectConstructor
 
-class RoutesViewModelFactory @Inject constructor() : ViewModelProvider.Factory {
+@InjectConstructor
+class RoutesViewModelFactory : ViewModelProvider.Factory {
 
     override fun <T : ViewModel?> create(modelClass: Class<T>): T = DI.getRoutesInternalScope().getInstance(modelClass)
 

@@ -1,13 +1,14 @@
 package com.itmoclimbing.presentation.screens.root
 
 import com.itmoclimbing.domainCommon.navigation.AppRouter
+import com.itmoclimbing.presentation.main.MainFragment
 import com.itmoclimbing.presentationcommon.internal.cicerone.FragmentScreen
 import com.itmoclimbing.presentationcommon.internal.navigation.ScreenNavigation
-import com.itmoclimbing.presentation.main.MainFragment
-import javax.inject.Inject
+import toothpick.InjectConstructor
 import javax.inject.Named
 
-class RootScreenNavigation @Inject constructor(
+@InjectConstructor
+class RootScreenNavigation(
         @Named(NAME) router: AppRouter
 ) : ScreenNavigation(router) {
 

@@ -6,9 +6,10 @@ import com.itmoclimbing.R
 import com.itmoclimbing.internal.di.DI
 import com.itmoclimbing.presentation.screens.main.MainScreenNavigation
 import com.kommander.components.android_core.viewmodel.SingleEventLiveData
-import javax.inject.Inject
+import toothpick.InjectConstructor
 
-class MainViewModel @Inject constructor() : ViewModel() {
+@InjectConstructor
+class MainViewModel : ViewModel() {
 
     val onTabSelectedLiveData = SingleEventLiveData<Int>()
 

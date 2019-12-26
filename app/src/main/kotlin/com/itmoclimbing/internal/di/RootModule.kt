@@ -5,6 +5,7 @@ import com.itmoclimbing.feature.users.UsersMediator
 import com.itmoclimbing.features.common.MediatorManager
 import com.itmoclimbing.internal.feature.AppMediator
 import toothpick.config.Module
+import toothpick.ktp.binding.bind
 
 class RootModule : Module() {
 
@@ -20,7 +21,7 @@ class RootModule : Module() {
         appMediator.mediatorManager = mediatorManager
         routesMediator.mediatorManager = mediatorManager
         userMediator.mediatorManager = mediatorManager
-        bind(MediatorManager::class.java).toInstance(mediatorManager)
+        bind<MediatorManager>().toInstance(mediatorManager)
     }
 
 }
