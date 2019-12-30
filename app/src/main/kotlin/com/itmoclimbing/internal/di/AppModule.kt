@@ -1,6 +1,6 @@
 package com.itmoclimbing.internal.di
 
-import com.itmoclimbing.domainCommon.navigation.AppRouter
+import com.kommander.components.android_core.navigation.AppRouter
 import com.itmoclimbing.presentation.AppViewModelFactory
 import com.itmoclimbing.presentation.main.MainViewModel
 import com.kommander.components.domain_core.rx.RxSchedulersProvider

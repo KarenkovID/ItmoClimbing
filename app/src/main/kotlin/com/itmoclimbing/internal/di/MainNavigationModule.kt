@@ -1,6 +1,6 @@
 package com.itmoclimbing.internal.di
 
-import com.itmoclimbing.domainCommon.navigation.AppRouter
+import com.kommander.components.android_core.navigation.AppRouter
 import com.itmoclimbing.presentation.screens.main.MainScreenNavigation
 import ru.terrakok.cicerone.Cicerone
 import ru.terrakok.cicerone.NavigatorHolder

@@ -5,7 +5,7 @@ import androidx.lifecycle.ViewModel
 import com.itmoclimbing.R
 import com.itmoclimbing.internal.di.DI
 import com.itmoclimbing.presentation.screens.main.MainScreenNavigation
-import com.kommander.components.android_core.viewmodel.SingleEventLiveData
+import com.kommander.components.android_core.viewmodel.livedata.SingleEventLiveData
 import toothpick.InjectConstructor
 
 @InjectConstructor

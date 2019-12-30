@@ -1,9 +1,9 @@
 package com.itmoclimbing.feature.users.navigation
 
-import com.itmoclimbing.domainCommon.navigation.AppRouter
+import com.kommander.components.android_core.navigation.AppRouter
 import com.itmoclimbing.feature.users.presentation.users.UsersListFragment
-import com.itmoclimbing.presentationcommon.internal.cicerone.FragmentScreen
-import com.itmoclimbing.presentationcommon.internal.navigation.ScreenNavigation
+import com.kommander.components.android_core.navigation.FragmentScreen
+import com.kommander.components.android_core.navigation.ScreenNavigation
 import toothpick.InjectConstructor
 import javax.inject.Named
 
@@ -16,9 +16,10 @@ class UsersScreenNavigation(
         const val NAME = "USERS_NAVIGATION"
     }
 
-    private fun getUsersListScreen(screenPos: Int) = FragmentScreen("USERS_LIST_FRAGMENT") {
-        UsersListFragment.newInstance(screenPos)
-    }
+    private fun getUsersListScreen(screenPos: Int) =
+            FragmentScreen("USERS_LIST_FRAGMENT") {
+                UsersListFragment.newInstance(screenPos)
+            }
 
     fun openUsersListAsRoot() {
         router.newRootScreen(getUsersListScreen(1))
