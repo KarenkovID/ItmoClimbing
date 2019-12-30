@@ -4,8 +4,18 @@ import androidx.fragment.app.Fragment
 import com.itmoclimbing.features.common.BaseMediator
 import com.itmoclimbing.features.common.api.FeatureRoutesApi
 import com.itmoclimbing.features.common.dependencies.RoutesDependencies
+import com.itmoclimbing.features.common.di.DiScopes
+import com.itmoclimbing.features.common.mediators.AppMediator
+import com.itmoclimbing.features.common.mediators.RoutesMediator
+import toothpick.InjectConstructor
+import toothpick.ktp.extension.getInstance
 
-class RoutesMediator : BaseMediator<FeatureRoutesApi, RoutesComponent, RoutesDependencies>() {
+@InjectConstructor
+class RoutesMediatorImpl : BaseMediator<FeatureRoutesApi, RoutesComponent, RoutesDependencies>(), RoutesMediator {
+
+    private val appMediator: AppMediator by lazy {
+        DiScopes.ROOT_SCOPE.openScope().getInstance<AppMediator>()
+    }
 
     /**
      * По сути это прокси для ленивой инициализации реального компонента.
@@ -21,9 +31,9 @@ class RoutesMediator : BaseMediator<FeatureRoutesApi, RoutesComponent, RoutesDep
 
     override fun provideDependencies(): RoutesDependencies = object : RoutesDependencies {
 
-        override fun selectUsersTab() = mediatorManager.appMediator.apiStub.selectUsersTab()
+        override fun selectUsersTab() = appMediator.apiStub.selectUsersTab()
 
-        override fun getUsersFragment(): Fragment = mediatorManager.usersMediator.apiStub.getUsersFragment()
+        override fun getUsersFragment(): Fragment = TODO()
 
     }
 

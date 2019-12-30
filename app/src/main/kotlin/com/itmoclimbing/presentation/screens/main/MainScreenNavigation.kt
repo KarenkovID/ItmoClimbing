@@ -1,7 +1,8 @@
 package com.itmoclimbing.presentation.screens.main
 
+import com.itmoclimbing.features.common.mediators.RoutesMediator
+import com.itmoclimbing.features.common.mediators.UsersMediator
 import com.kommander.components.android_core.navigation.AppRouter
-import com.itmoclimbing.features.common.MediatorManager
 import com.kommander.components.android_core.navigation.FragmentScreen
 import com.kommander.components.android_core.navigation.NestedStackScreenNavigation
 import toothpick.InjectConstructor
@@ -10,7 +11,8 @@ import javax.inject.Named
 @InjectConstructor
 class MainScreenNavigation(
         @Named(NAME) router: AppRouter,
-        mediatorManager: MediatorManager
+        usersMediator: UsersMediator,
+        routesMediator: RoutesMediator
 ) : NestedStackScreenNavigation(router) {
 
     companion object {
@@ -19,11 +21,11 @@ class MainScreenNavigation(
 
     private val routesContainerScreen = FragmentScreen(
             "ROUTES_CONTAINER_SCREEN",
-            mediatorManager.routesMediator.apiStub::getRoutesFragment
+            routesMediator.apiStub::getRoutesFragment
     )
     private val usersContainerScreen = FragmentScreen(
             "USERS_CONTAINER_SCREEN",
-            mediatorManager.usersMediator.apiStub::getUsersFragment
+            usersMediator.apiStub::getUsersFragment
     )
 
     init {

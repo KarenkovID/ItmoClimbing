@@ -6,8 +6,6 @@ abstract class BaseMediator<TApi : Any, TComponent : FeatureComponent<TApi>, TDe
     private val componentHolder =
             SingleComponentHolder<TComponent, TDependencies>(::provideComponent)
 
-    lateinit var mediatorManager: MediatorManager
-
     protected abstract fun provideComponent(dependencies: TDependencies): TComponent
 
     protected abstract fun provideDependencies(): TDependencies
