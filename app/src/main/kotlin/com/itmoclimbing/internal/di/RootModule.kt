@@ -15,17 +15,6 @@ import toothpick.ktp.binding.bind
 class RootModule : Module() {
 
     init {
-//        val appMediator = AppMediator()
-//        val routesMediator = RoutesMediator()
-//        val userMediator = UsersMediator()
-//        val mediatorManager = MediatorManager(
-//                routesMediator = routesMediator,
-//                appMediator = appMediator,
-//                usersMediator = userMediator
-//        )
-//        appMediator.mediatorManager = mediatorManager
-//        routesMediator.mediatorManager = mediatorManager
-//        userMediator.mediatorManager = mediatorManager
         bind<AppMediator>().toClass<AppMediatorImpl>().singleton()
         bind<UsersMediator>().toClass<UsersMediatorImpl>().singleton()
         bind<RoutesMediator>().toClass<RoutesMediatorImpl>().singleton()

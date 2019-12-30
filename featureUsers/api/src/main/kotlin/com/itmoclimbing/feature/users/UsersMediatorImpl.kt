@@ -16,7 +16,7 @@ class UsersMediatorImpl : BaseMediator<FeatureUsersApi, UsersComponent, UsersDep
      */
     override val apiStub = object : FeatureUsersApi {
 
-        override fun getUsersFragment(): Fragment = provideComponent().api().getUsersFragment()
+        override fun getUsersFragment(): Fragment = component.api().getUsersFragment()
 
     }
 

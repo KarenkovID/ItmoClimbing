@@ -8,7 +8,6 @@ import com.itmoclimbing.features.common.di.DiScopes
 import com.itmoclimbing.features.common.mediators.AppMediator
 import com.itmoclimbing.features.common.mediators.RoutesMediator
 import toothpick.InjectConstructor
-import toothpick.ktp.extension.getInstance
 import toothpick.ktp.extension.getLazy
 
 @InjectConstructor
@@ -27,11 +26,11 @@ class AppMediatorImpl : BaseMediator<FeatureAppApi, AppComponent, AppDependencie
     override val apiStub: FeatureAppApi = object : FeatureAppApi {
 
         override fun selectRoutesTab() {
-            provideComponent().api().selectRoutesTab()
+            component.api().selectRoutesTab()
         }
 
         override fun selectUsersTab() {
-            provideComponent().api().selectUsersTab()
+            component.api().selectUsersTab()
         }
 
     }

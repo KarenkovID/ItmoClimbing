@@ -23,7 +23,7 @@ class RoutesMediatorImpl : BaseMediator<FeatureRoutesApi, RoutesComponent, Route
      */
     override val apiStub = object : FeatureRoutesApi {
 
-        override fun getRoutesFragment(): Fragment = provideComponent().api().getRoutesFragment()
+        override fun getRoutesFragment(): Fragment = component.api().getRoutesFragment()
 
     }
 
