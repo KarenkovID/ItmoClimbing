@@ -4,8 +4,11 @@ import androidx.fragment.app.Fragment
 import com.itmoclimbing.features.common.BaseMediator
 import com.itmoclimbing.features.common.api.FeatureUsersApi
 import com.itmoclimbing.features.common.dependencies.UsersDependencies
+import com.itmoclimbing.features.common.mediators.UsersMediator
+import toothpick.InjectConstructor
 
-class UsersMediator : BaseMediator<FeatureUsersApi, UsersComponent, UsersDependencies>() {
+@InjectConstructor
+class UsersMediatorImpl : BaseMediator<FeatureUsersApi, UsersComponent, UsersDependencies>(), UsersMediator {
 
     /**
      * По сути это прокси для ленивой инициализации реального компонента.
@@ -13,7 +16,7 @@ class UsersMediator : BaseMediator<FeatureUsersApi, UsersComponent, UsersDepende
      */
     override val apiStub = object : FeatureUsersApi {
 
-        override fun getUsersFragment(): Fragment = provideComponent().api().getUsersFragment()
+        override fun getUsersFragment(): Fragment = component.api().getUsersFragment()
 
     }
 
