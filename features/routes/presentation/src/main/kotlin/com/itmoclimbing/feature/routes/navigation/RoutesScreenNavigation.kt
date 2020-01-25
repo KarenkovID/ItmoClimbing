@@ -1,10 +1,10 @@
 package com.itmoclimbing.feature.routes.navigation
 
 import android.util.Log
-import com.kommander.components.android_core.navigation.AppRouter
+import com.kommander.components.android.navigation.AppRouter
 import com.itmoclimbing.feature.routes.presentation.RoutesListFragment
-import com.kommander.components.android_core.navigation.FragmentScreen
-import com.kommander.components.android_core.navigation.ScreenNavigation
+import com.kommander.components.android.navigation.FragmentScreen
+import com.kommander.components.android.navigation.ScreenNavigation
 import toothpick.InjectConstructor
 import javax.inject.Named
 

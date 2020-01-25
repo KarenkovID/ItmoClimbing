@@ -3,7 +3,7 @@ package com.itmoclimbing.feature.routes.presentation
 import androidx.fragment.app.Fragment
 import com.itmoclimbing.feature.routes.di.DI
 import com.itmoclimbing.feature.routes.navigation.RoutesScreenNavigation
-import com.kommander.components.android_core.presentation.base.BaseScreenContainerFragment
+import com.kommander.components.android.presentation.base.BaseScreenContainerFragment
 import ru.terrakok.cicerone.NavigatorHolder
 
 class RoutesScreenContainerFragment : BaseScreenContainerFragment() {
@@ -17,7 +17,7 @@ class RoutesScreenContainerFragment : BaseScreenContainerFragment() {
         DI.getRoutesInternalScope()
     }
 
-    override val routesNavigation: RoutesScreenNavigation by lazy {
+    override val navigation: RoutesScreenNavigation by lazy {
         DI
                 .getRoutesInternalScope()
                 .getInstance(RoutesScreenNavigation::class.java)
@@ -30,12 +30,12 @@ class RoutesScreenContainerFragment : BaseScreenContainerFragment() {
     }
 
     override fun openFirstScreen() {
-        routesNavigation.openAndReplaceRoutesList()
+        navigation.openAndReplaceRoutesList()
     }
 
     override fun cleanScreenStack() {
         if (childFragmentManager.backStackEntryCount > 0) {
-            routesNavigation.openRoutesListAsRoot()
+            navigation.openRoutesListAsRoot()
         }
     }
 

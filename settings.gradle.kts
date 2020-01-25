@@ -9,7 +9,7 @@ include(
         ":app",
         ":domainCommon",
         ":dataCommon",
-        ":android_core",
+        ":android",
         ":presentationCommon",
         ":features:common"
 )

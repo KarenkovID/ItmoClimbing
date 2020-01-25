@@ -4,7 +4,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.lifecycle.ViewModelProviders
 import com.itmoclimbing.feature.routes.di.DI
-import com.kommander.components.android_core.presentation.base.BaseFragment
+import com.kommander.components.android.presentation.base.BaseFragment
 import kotlinx.android.synthetic.main.fragment_routes_list.routesFab
 
 internal class RoutesListFragment : BaseFragment(R.layout.fragment_routes_list) {

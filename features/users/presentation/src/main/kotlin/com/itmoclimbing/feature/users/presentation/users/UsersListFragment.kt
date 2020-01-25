@@ -6,8 +6,8 @@ import androidx.fragment.app.Fragment
 import com.itmoclimbing.feature.users.di.DI
 import com.itmoclimbing.feature.users.navigation.UsersScreenNavigation
 import com.itmoclimbing.feature.users.presentation.R
-import com.kommander.components.android_core.presentation.base.BaseFragment
-import com.kommander.components.android_core.extra.args
+import com.kommander.components.android.presentation.base.BaseFragment
+import com.kommander.components.android.extra.args
 import kotlinx.android.synthetic.main.fragment_users_list.fragmentStackText
 import kotlinx.android.synthetic.main.fragment_users_list.nextFragmentButton
 

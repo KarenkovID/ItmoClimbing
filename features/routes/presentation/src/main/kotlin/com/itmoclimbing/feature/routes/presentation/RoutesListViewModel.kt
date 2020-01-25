@@ -4,11 +4,11 @@ import androidx.lifecycle.MutableLiveData
 import com.itmoclimbing.domainCommon.model.Route
 import com.itmoclimbing.domainCommon.repository.RoutesRepository
 import com.itmoclimbing.features.common.dependencies.RoutesDependencies
-import com.kommander.components.android_core.viewmodel.BaseViewModel
-import com.itmoclimbing.internal.viewmodel.livedata.dispatchTo
-import com.kommander.components.android_core.viewmodel.livedata.ContentEvent
-import com.kommander.components.android_core.extensions.schedulersIoToMain
-import com.kommander.components.domain_core.rx.RxSchedulersProvider
+import com.kommander.components.android.viewmodel.BaseViewModel
+import com.kommander.components.android.viewmodel.livedata.ContentEvent
+import com.kommander.components.android.extensions.schedulersIoToMain
+import com.kommander.components.android.viewmodel.livedata.dispatchTo
+import com.kommander.components.domain.rx.RxSchedulersProvider
 import toothpick.InjectConstructor
 
 @InjectConstructor

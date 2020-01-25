@@ -1,6 +1,6 @@
 package com.itmoclimbing.feature.routes.di.modules
 
-import com.kommander.components.android_core.navigation.AppRouter
+import com.kommander.components.android.navigation.AppRouter
 import com.itmoclimbing.feature.routes.navigation.RoutesScreenNavigation
 import ru.terrakok.cicerone.Cicerone
 import ru.terrakok.cicerone.NavigatorHolder

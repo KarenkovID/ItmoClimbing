@@ -1,10 +1,10 @@
 package com.itmoclimbing.internal.di
 
-import com.kommander.components.android_core.navigation.AppRouter
+import com.kommander.components.android.navigation.AppRouter
 import com.itmoclimbing.presentation.AppViewModelFactory
 import com.itmoclimbing.presentation.main.MainViewModel
-import com.kommander.components.domain_core.rx.RxSchedulersProvider
-import com.kommander.components.android_core.rx.RxSchedulersProviderImpl
+import com.kommander.components.domain.rx.RxSchedulersProvider
+import com.kommander.components.android.rx.RxSchedulersProviderImpl
 import com.itmoclimbing.presentation.screens.root.RootScreenNavigation
 import ru.terrakok.cicerone.Cicerone
 import ru.terrakok.cicerone.NavigatorHolder

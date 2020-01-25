@@ -2,9 +2,9 @@ package com.itmoclimbing.presentation.screens.main
 
 import com.itmoclimbing.features.common.mediators.RoutesMediator
 import com.itmoclimbing.features.common.mediators.UsersMediator
-import com.kommander.components.android_core.navigation.AppRouter
-import com.kommander.components.android_core.navigation.FragmentScreen
-import com.kommander.components.android_core.navigation.NestedStackScreenNavigation
+import com.kommander.components.android.navigation.AppRouter
+import com.kommander.components.android.navigation.FragmentScreen
+import com.kommander.components.android.navigation.NestedStackScreenNavigation
 import toothpick.InjectConstructor
 import javax.inject.Named
 

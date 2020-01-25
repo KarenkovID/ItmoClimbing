@@ -6,7 +6,7 @@ import androidx.lifecycle.ViewModelProviders
 import com.itmoclimbing.internal.di.DI
 import com.itmoclimbing.presentation.AppViewModelFactory
 import com.itmoclimbing.presentation.screens.root.RootScreenNavigation
-import com.kommander.components.android_core.presentation.base.BaseActivity
+import com.kommander.components.android.presentation.base.BaseActivity
 import ru.terrakok.cicerone.Navigator
 import ru.terrakok.cicerone.NavigatorHolder
 import ru.terrakok.cicerone.android.support.SupportAppNavigator
