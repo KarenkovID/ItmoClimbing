@@ -2,9 +2,6 @@ package com.itmoclimbing.internal.di
 
 import com.itmoclimbing.feature.routes.RoutesMediatorImpl
 import com.itmoclimbing.feature.users.UsersMediatorImpl
-import com.itmoclimbing.features.common.FeatureMediator
-import com.itmoclimbing.features.common.api.FeatureRoutesApi
-import com.itmoclimbing.features.common.api.FeatureUsersApi
 import com.itmoclimbing.features.common.mediators.AppMediator
 import com.itmoclimbing.features.common.mediators.RoutesMediator
 import com.itmoclimbing.features.common.mediators.UsersMediator

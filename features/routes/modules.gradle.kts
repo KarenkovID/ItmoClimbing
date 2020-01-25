@@ -1,8 +1,6 @@
-val featureRoutesRoot: String by extra
-
 include(
-        ":$featureRoutesRoot:api",
-        ":$featureRoutesRoot:presentation"
+        ":features:routes:api",
+        ":features:routes:presentation"
 )
 
 //project(":featureRoutesPresentation").projectDir = File(featureRoutesRoot, "featureRoutesPresentation")

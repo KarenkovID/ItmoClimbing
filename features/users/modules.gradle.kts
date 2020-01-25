@@ -1,9 +1,6 @@
-val featureUsersRoot: String by extra
-
-//include(":featureRoutesPresentation")
 include(
-        ":featureUsers:api",
-        ":featureUsers:presentation"
+        ":features:users:api",
+        ":features:users:presentation"
 )
 
 //project(":featureRoutesPresentation").projectDir = File(featureRoutesRoot, "featureRoutesPresentation")

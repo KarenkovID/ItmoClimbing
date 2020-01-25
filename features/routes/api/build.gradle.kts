@@ -19,13 +19,14 @@ android {
 }
 
 dependencies {
-    implementation(project(":featureUsers:presentation"))
-    implementation(project(Projects.featuresCommon))
+    implementation(project(Features.routes.presentation))
+    implementation(project(Features.common))
+    implementation(project(Projects.presentationCommon))
+
+    implementation(Libraries.kotlinStdLib)
+    implementation(Libraries.appCompat)
 
     implementation(DI.toothpickRuntime)
     implementation(DI.toothpickSmoothie)
     kapt(DI.toothpickCompiler)
-
-    implementation(Libraries.kotlinStdLib)
-    implementation(Libraries.appCompat)
 }

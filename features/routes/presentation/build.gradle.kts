@@ -25,7 +25,7 @@ dependencies {
     implementation(project(Projects.androidCore))
     implementation(project(Projects.domainCore))
     implementation(project(Projects.presentationCommon))
-    implementation(project(Projects.featuresCommon))
+    implementation(project(Features.common))
 
     implementation(Libraries.kotlinStdLib)
     implementation(Libraries.kotlinStdLib)
@@ -49,5 +49,4 @@ dependencies {
     implementation(Libraries.rxAndroid)
 
     implementation(Libraries.androidLifecycleExtensions)
-    implementation(Libraries.androidLifecycleCompiler)
 }

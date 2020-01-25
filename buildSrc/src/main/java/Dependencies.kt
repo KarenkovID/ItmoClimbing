@@ -43,7 +43,6 @@ object Libraries {
     const val adapterDelegates = "com.hannesdorfmann:adapterdelegates4:4.2.0"
     const val timber = "com.jakewharton.timber:timber:4.7.1"
     const val androidLifecycleExtensions = "android.arch.lifecycle:extensions:${Versions.androidLifecycleVersion}"
-    const val androidLifecycleCompiler = "android.arch.lifecycle:compiler:${Versions.androidLifecycleVersion}"
 
     const val rxJava = "io.reactivex.rxjava2:rxjava:2.2.16"
     const val rxKotlin = "io.reactivex.rxjava2:rxkotlin:2.4.0"
@@ -79,13 +78,21 @@ object Projects {
     const val androidCore = ":android_core"
     const val domainCore = ":domain_core"
     const val presentationCommon = ":presentationCommon"
-    const val featuresCommon = ":featuresCommon"
 
 }
 
 object Features {
 
-    const val routes = ":featureRoutes:api"
-    const val users = ":featureUsers:api"
+    val common = ":features:common"
+    val users = Feature(":users")
+    val routes = Feature(":routes")
 
+    class Feature(relativePath: String) {
+        private val path: String = ":features$relativePath"
+
+        val api = "$path:api"
+        val presentation = "$path:presentation"
+        val data = "$path:data"
+        val domain = "$path:domain"
+    }
 }

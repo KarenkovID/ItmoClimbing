@@ -48,5 +48,4 @@ dependencies {
     implementation(Libraries.rxAndroid)
 
     implementation(Libraries.androidLifecycleExtensions)
-    implementation(Libraries.androidLifecycleCompiler)
 }

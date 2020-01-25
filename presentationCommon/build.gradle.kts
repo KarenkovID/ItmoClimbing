@@ -47,5 +47,4 @@ dependencies {
     implementation(Libraries.rxAndroid)
 
     implementation(Libraries.androidLifecycleExtensions)
-    annotationProcessor(Libraries.androidLifecycleCompiler)
 }
