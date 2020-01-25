@@ -3,7 +3,6 @@ package com.itmoclimbing.feature.users.presentation
 import androidx.fragment.app.Fragment
 import com.itmoclimbing.feature.users.di.DI
 import com.itmoclimbing.feature.users.navigation.UsersScreenNavigation
-import com.kommander.components.android.navigation.ScreenNavigation
 import com.kommander.components.android.presentation.base.BaseScreenContainerFragment
 import ru.terrakok.cicerone.NavigatorHolder
 

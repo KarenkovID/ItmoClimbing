@@ -1,5 +1,5 @@
-autoCorrect: true
-failFast: false
+#autoCorrect: true
+#failFast: false
 #build:
 #  maxIssues: 1
 #  weights:
@@ -125,7 +125,7 @@ empty-blocks:
     active: true
   EmptyFunctionBlock:
     active: true
-    ignoreOverriddenFunctions: false
+    ignoreOverridden: false
   EmptyIfBlock:
     active: true
   EmptyInitBlock:
@@ -203,35 +203,44 @@ formatting:
   CommentSpacing:
     active: true
     autoCorrect: true
+  EnumEntryNameCase:
+    active: true
+    autoCorrect: true
   Filename:
     active: true
   FinalNewline:
-    active: true
+    active: false
     autoCorrect: true
+  # we cannot customise it
   ImportOrdering:
     active: false
     autoCorrect: true
+  # it doesn't work correctly, especially with enabled ParameterListWrapping
   Indentation:
     active: false
-    autoCorrect: true
+    autoCorrect: false
     indentSize: 4
     continuationIndentSize: 4
   MaximumLineLength:
     active: true
-    maxLineLength: 120
+    maxLineLength: 150
   ModifierOrdering:
     active: true
     autoCorrect: true
   MultiLineIfElse:
     active: true
     autoCorrect: true
+  # What to do with it?
   NoBlankLineBeforeRbrace:
-    active: true
+    active: false
     autoCorrect: true
   NoConsecutiveBlankLines:
     active: true
     autoCorrect: true
   NoEmptyClassBody:
+    active: true
+    autoCorrect: true
+  NoEmptyFirstLineInMethodBlock:
     active: true
     autoCorrect: true
   NoLineBreakAfterElse:
@@ -249,6 +258,7 @@ formatting:
   NoTrailingSpaces:
     active: true
     autoCorrect: true
+  # = Unit looks clearer that {}, doesn't it?
   NoUnitReturn:
     active: true
     autoCorrect: true
@@ -263,7 +273,7 @@ formatting:
   ParameterListWrapping:
     active: true
     autoCorrect: true
-    indentSize: 4
+    indentSize: 8
   SpacingAroundColon:
     active: true
     autoCorrect: true
@@ -331,7 +341,7 @@ naming:
     excludes: "**/test/**,**/androidTest/**,**/*.Test.kt,**/*.Spec.kt,**/*.Spek.kt"
     parameterPattern: '[a-z][A-Za-z0-9]*'
     excludeClassPattern: '$^'
-    ignoreOverriddenFunctions: true
+    ignoreOverridden: true
   InvalidPackageDeclaration:
     active: false
     rootPackage: ''
@@ -340,7 +350,7 @@ naming:
     active: false
   MemberNameEqualsClassName:
     active: false
-    ignoreOverriddenFunction: true
+    ignoreOverridden: true
   ObjectPropertyNaming:
     active: true
     excludes: "**/test/**,**/androidTest/**,**/*.Test.kt,**/*.Spec.kt,**/*.Spek.kt"
@@ -487,8 +497,9 @@ style:
     ignoreRanges: false
   MandatoryBracesIfStatements:
     active: true
+  # we already have this rule in style section. Moreover, this rule doesn't detect all errors
   MaxLineLength:
-    active: true
+    active: false
     maxLineLength: 150
     excludePackageStatements: true
     excludeImportStatements: true

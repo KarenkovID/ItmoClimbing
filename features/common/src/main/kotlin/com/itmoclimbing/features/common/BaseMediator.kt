@@ -1,7 +1,7 @@
 package com.itmoclimbing.features.common
 
-abstract class BaseMediator<TApi : Any, TComponent : FeatureComponent<TApi>, TDependencies : Any>
-    : FeatureMediator<TApi> {
+abstract class BaseMediator<TApi : Any, TComponent : FeatureComponent<TApi>, TDependencies : Any> :
+    FeatureMediator<TApi> {
 
     protected val component: TComponent by lazy {
         provideComponent(provideDependencies())

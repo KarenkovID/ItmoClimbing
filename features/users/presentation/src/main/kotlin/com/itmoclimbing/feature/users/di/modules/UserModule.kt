@@ -5,7 +5,7 @@ import com.itmoclimbing.domainCommon.repository.UsersRepository
 import toothpick.config.Module
 import toothpick.ktp.binding.bind
 
-class UserModule: Module() {
+class UserModule : Module() {
 
     init {
         bind<UsersRepository>().toClass<UsersRepositoryStub>().singleton()

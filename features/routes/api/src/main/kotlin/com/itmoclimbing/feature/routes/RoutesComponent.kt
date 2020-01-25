@@ -8,7 +8,7 @@ import com.itmoclimbing.features.common.dependencies.RoutesDependencies
 import com.itmoclimbing.features.common.di.DiScopes
 import com.itmoclimbing.features.common.di.installSingleInstanceModule
 
-class RoutesComponent(routesDependencies: RoutesDependencies): FeatureComponent<FeatureRoutesApi> {
+class RoutesComponent(routesDependencies: RoutesDependencies) : FeatureComponent<FeatureRoutesApi> {
 
     init {
         DiScopes.ROUTES_SCOPE.openScope().installSingleInstanceModule(routesDependencies)

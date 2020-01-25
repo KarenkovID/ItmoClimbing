@@ -39,7 +39,7 @@ class RoutesMediatorImpl : BaseMediator<FeatureRoutesApi, RoutesComponent, Route
 
 }
 
-//class RoutesMediator(mediatorManager: MediatorManager) : BaseMediator<FeatureRoutesApi>(mediatorManager) {
+// class RoutesMediator(mediatorManager: MediatorManager) : BaseMediator<FeatureRoutesApi>(mediatorManager) {
 //
 //    private val componentHolder = SingleComponentHolder(::RoutesComponent)
 //
@@ -66,4 +66,4 @@ class RoutesMediatorImpl : BaseMediator<FeatureRoutesApi, RoutesComponent, Route
 //
 //    }
 //
-//}
+// }

@@ -19,11 +19,11 @@ class RootActivity : BaseActivity(R.layout.activity_root) {
 //                .apply { rootScreenNavigation.register(this) }
     }
 
-    private val rootScreenNavigation: RootScreenNavigation by lazy {
-        DI
-                .getAppScope()
-                .getInstance(RootScreenNavigation::class.java)
-    }
+//    private val rootScreenNavigation: RootScreenNavigation by lazy {
+//        DI
+//                .getAppScope()
+//                .getInstance(RootScreenNavigation::class.java)
+//    }
 
     private val navigatorHolder: NavigatorHolder by lazy {
         DI

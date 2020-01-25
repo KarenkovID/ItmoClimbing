@@ -62,11 +62,11 @@ android {
 dependencies {
     implementation(project(":domainCommon"))
     implementation(project(":dataCommon"))
+    implementation(project(Features.common))
     implementation(project(Features.routes.api))
     implementation(project(Features.users.api))
     implementation(project(Projects.androidCore))
     implementation(project(Projects.domainCore))
-    implementation(project(Features.common))
 
     implementation(Libraries.kotlinStdLib)
     implementation(Libraries.appCompat)

@@ -5,9 +5,7 @@ android {
         checkAllWarnings = true
         warningsAsErrors = false
         xmlReport = true
-        xmlOutput = file("$staticAnalysisReportDir\\lint_report_${project.name}.xml")
-        htmlReport = true
-        htmlOutput = file("$staticAnalysisReportDir\\lint_report_${project.name}.html")
+        xmlOutput = file("$staticAnalysisReportDir\\lint_report_${project.path}.xml")
         lintConfig = file("$staticAnalysisDir\\lint.xml")
     }
 }
