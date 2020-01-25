@@ -10,6 +10,5 @@ include(
         ":domainCommon",
         ":dataCommon",
         ":android",
-        ":presentationCommon",
         ":features:common"
 )

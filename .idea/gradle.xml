@@ -26,7 +26,6 @@
             <option value="$PROJECT_DIR$/features/users" />
             <option value="$PROJECT_DIR$/features/users/api" />
             <option value="$PROJECT_DIR$/features/users/presentation" />
-            <option value="$PROJECT_DIR$/presentationCommon" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

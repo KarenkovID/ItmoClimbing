@@ -64,7 +64,6 @@ dependencies {
     implementation(project(":dataCommon"))
     implementation(project(Features.routes.api))
     implementation(project(Features.users.api))
-    implementation(project(Projects.presentationCommon))
     implementation(project(Projects.androidCore))
     implementation(project(Projects.domainCore))
     implementation(project(Features.common))

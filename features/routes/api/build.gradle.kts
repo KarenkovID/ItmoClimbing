@@ -21,7 +21,6 @@ android {
 dependencies {
     implementation(project(Features.routes.presentation))
     implementation(project(Features.common))
-    implementation(project(Projects.presentationCommon))
 
     implementation(Libraries.kotlinStdLib)
     implementation(Libraries.appCompat)

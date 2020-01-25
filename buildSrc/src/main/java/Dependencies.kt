@@ -77,13 +77,12 @@ object Projects {
 
     const val androidCore = ":android_core"
     const val domainCore = ":domain_core"
-    const val presentationCommon = ":presentationCommon"
 
 }
 
 object Features {
 
-    val common = ":features:common"
+    const val common = ":features:common"
     val users = Feature(":users")
     val routes = Feature(":routes")
 

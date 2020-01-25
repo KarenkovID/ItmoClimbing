@@ -24,7 +24,6 @@ dependencies {
     implementation(project(":dataCommon"))
     implementation(project(Projects.androidCore))
     implementation(project(Projects.domainCore))
-    implementation(project(Projects.presentationCommon))
     implementation(project(Features.common))
 
     implementation(Libraries.kotlinStdLib)
