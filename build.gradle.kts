@@ -23,42 +23,6 @@ allprojects {
         maven("https://dl.bintray.com/kotlin/kotlin-eap")
     }
 }
-//subprojects {
-//
-//    // BasePlugin is the common superclass of the AppPlugin and LibraryPlugin which are the plugin classes that "com.android.application" and "com.android.library" apply
-//    plugins.withType(BasePlugin::class.java) {
-//
-//        // BaseExtension is the common superclass of the AppExtension and LibraryExtension which are the extension classes registered by the two plugins to the name "android"
-//        configure<com.android.build.gradle.BaseExtension> {
-//
-//            // This block is typed correctly
-//            compileSdkVersion(AndroidSdk.compile)
-//
-//            defaultConfig {
-//                minSdkVersion(AndroidSdk.min)
-//            }
-//
-//            sourceSets {
-//                getByName("main").java.srcDirs("src/main/kotlin")
-//            }
-//        }
-//    }
-//}
-//subprojects { subproject ->
-//    apply(plugin = BuildPlugins.androidApplication)
-//    android {
-//        compileSdkVersion(AndroidSdk.compile)
-//
-//        defaultConfig {
-//            minSdkVersion(AndroidSdk.min)
-//        }
-//
-//        sourceSets {
-//            getByName("main").java.srcDirs("src/main/kotlin")
-//        }
-//
-//    }
-//}
 
 tasks.register<Delete>("clean").configure {
     delete(rootProject.buildDir)
