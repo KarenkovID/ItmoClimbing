@@ -8,8 +8,8 @@ import com.itmoclimbing.R
 import com.itmoclimbing.internal.di.DI
 import com.itmoclimbing.presentation.AppViewModelFactory
 import com.itmoclimbing.presentation.screens.main.MainScreenNavigation
-import com.kommander.components.android_core.presentation.base.BaseFragment
-import com.kommander.components.android_core.navigation.NestedStackScreenNavigator
+import com.kommander.components.android.presentation.base.BaseFragment
+import com.kommander.components.android.navigation.NestedStackScreenNavigator
 import kotlinx.android.synthetic.main.fragment_main.mainBottomNavigation
 import ru.terrakok.cicerone.Navigator
 import ru.terrakok.cicerone.NavigatorHolder

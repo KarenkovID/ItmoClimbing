@@ -62,12 +62,11 @@ android {
 dependencies {
     implementation(project(":domainCommon"))
     implementation(project(":dataCommon"))
-    implementation(project(Features.routes))
-    implementation(project(Features.users))
-    implementation(project(Projects.presentationCommon))
+    implementation(project(Features.common))
+    implementation(project(Features.routes.api))
+    implementation(project(Features.users.api))
     implementation(project(Projects.androidCore))
     implementation(project(Projects.domainCore))
-    implementation(project(Projects.featuresCommon))
 
     implementation(Libraries.kotlinStdLib)
     implementation(Libraries.appCompat)
@@ -92,5 +91,4 @@ dependencies {
     debugImplementation(DebugLibraries.leakcanary)
 
     implementation(Libraries.androidLifecycleExtensions)
-    annotationProcessor(Libraries.androidLifecycleCompiler)
 }

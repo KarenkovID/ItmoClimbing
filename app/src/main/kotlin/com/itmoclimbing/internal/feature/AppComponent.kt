@@ -6,7 +6,6 @@ import com.itmoclimbing.features.common.api.FeatureAppApi
 import com.itmoclimbing.features.common.dependencies.AppDependencies
 import com.itmoclimbing.features.common.di.DiScopes
 import com.itmoclimbing.features.common.di.installSingleInstanceModule
-import toothpick.ktp.binding.module
 
 class AppComponent(dependencies: AppDependencies) : FeatureComponent<FeatureAppApi> {
 

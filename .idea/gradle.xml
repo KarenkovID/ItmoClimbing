@@ -13,18 +13,19 @@
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/KommanderComponents/android_core" />
             <option value="$PROJECT_DIR$/KommanderComponents/domain_core" />
+            <option value="$PROJECT_DIR$/android" />
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/buildSrc" />
             <option value="$PROJECT_DIR$/dataCommon" />
             <option value="$PROJECT_DIR$/domainCommon" />
-            <option value="$PROJECT_DIR$/featureRoutes" />
-            <option value="$PROJECT_DIR$/featureRoutes/api" />
-            <option value="$PROJECT_DIR$/featureRoutes/presentation" />
-            <option value="$PROJECT_DIR$/featureUsers" />
-            <option value="$PROJECT_DIR$/featureUsers/api" />
-            <option value="$PROJECT_DIR$/featureUsers/presentation" />
-            <option value="$PROJECT_DIR$/featuresCommon" />
-            <option value="$PROJECT_DIR$/presentationCommon" />
+            <option value="$PROJECT_DIR$/features" />
+            <option value="$PROJECT_DIR$/features/common" />
+            <option value="$PROJECT_DIR$/features/routes" />
+            <option value="$PROJECT_DIR$/features/routes/api" />
+            <option value="$PROJECT_DIR$/features/routes/presentation" />
+            <option value="$PROJECT_DIR$/features/users" />
+            <option value="$PROJECT_DIR$/features/users/api" />
+            <option value="$PROJECT_DIR$/features/users/presentation" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

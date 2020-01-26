@@ -1,5 +1,3 @@
-apply from: "$staticAnalysisDir/detekt.gradle"
-
 task staticAnalysis {
 
     dependsOn 'cleananalysisReports'
@@ -9,12 +7,33 @@ task staticAnalysis {
     }
 
     if (staticAnalysisEnableLint) {
+        def projects = [rootProject.findProject(":features")]
+        def i = 0
+        while (i < projects.size()) {
+            if (projects[i].childProjects != null && !projects[i].childProjects.isEmpty()) {
+                def parentProject = projects.remove(i)
+                projects.addAll(parentProject.childProjects.collect {it.value})
+            } else {
+                i++
+            }
+        }
+        for (project in projects) {
+            // TODO: couldn't find the correct way to detect is it android project
+            if (!project.path.contains("domain")) {
+                dependsOn("$project.path:lintDebug")
+            }
+        }
         dependsOn ':app:lintDebug'
     }
 
     doLast {
         generateReport()
     }
+}
+
+configure(staticAnalysis) {
+    group = 'verification'
+    description = 'Check project using Kotlin Detekt and Lint'
 }
 
 def generateReport() {
@@ -130,24 +149,6 @@ static def appendError(number, analyzer, file, line, column, errorId, errorLink,
     }
     println("$number. $analyzer : $description ($errorId)\n\tat $errorPath")
 }
-
-//detekt {
-//    debug = true
-//    toolVersion = "1.0.0-RC12"
-//    filters = ".*test.*,.*androidTest.*,.*//*resources/.*,.*//*build/.*"
-//    input = files("$rootDir/app/src/main/kotlin", "$rootDir/data/src/main/kotlin", "$rootDir/domain/src/main/kotlin")
-//    config = files("$staticAnalysisDir/detekt-config.yml")
-//
-//    reports {
-//        xml {
-//            enabled = true
-//            destination = file("$staticAnalysisReportDir/report_detekt.xml")
-//        }
-//        html {
-//            enabled = false
-//        }
-//    }
-//}
 
 task cleananalysisReports(type: Delete) {
     delete staticAnalysisReportDir
