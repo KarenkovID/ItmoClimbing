@@ -1,7 +1,8 @@
 package com.itmoclimbing.feature.users.navigation
 
+import com.itmoclimbing.feature.users.presentation.creation.CreateUserFragment
+import com.itmoclimbing.feature.users.presentation.list.UsersListFragment
 import com.kommander.components.android.navigation.AppRouter
-import com.itmoclimbing.feature.users.presentation.users.UsersListFragment
 import com.kommander.components.android.navigation.FragmentScreen
 import com.kommander.components.android.navigation.ScreenNavigation
 import toothpick.InjectConstructor
@@ -16,21 +17,19 @@ class UsersScreenNavigation(
         const val NAME = "USERS_NAVIGATION"
     }
 
-    private fun getUsersListScreen(screenPos: Int) =
-            FragmentScreen("USERS_LIST_FRAGMENT") {
-                UsersListFragment.newInstance(screenPos)
-            }
+    private val usersListScreen = FragmentScreen("USERS_LIST_FRAGMENT", UsersListFragment.Companion::newInstance)
+    private val createUserListScreen = FragmentScreen("CREATE_USER_FRAGMENT", CreateUserFragment.Companion::newInstance)
 
     fun openUsersListAsRoot() {
-        router.newRootScreen(getUsersListScreen(1))
+        router.newRootScreen(usersListScreen)
     }
 
     fun openAndReplaceUsersList() {
-        router.replaceScreen(getUsersListScreen(1))
+        router.replaceScreen(usersListScreen)
     }
 
-    fun openUsersList(screenPos: Int) {
-        router.addScreen(getUsersListScreen(screenPos))
+    fun openCreateUser() {
+        router.addScreen(createUserListScreen)
     }
 
 }

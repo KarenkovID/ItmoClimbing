@@ -2,4 +2,7 @@
     <string name="app_name">itmoclimbing</string>
     <string name="routes">Routes</string>
     <string name="users">Users</string>
+    <string name="global_word_first_name">Имя</string>
+    <string name="global_word_last_name">Фамилия</string>
+    <string name="global_word_create">Создать</string>
 </resources>

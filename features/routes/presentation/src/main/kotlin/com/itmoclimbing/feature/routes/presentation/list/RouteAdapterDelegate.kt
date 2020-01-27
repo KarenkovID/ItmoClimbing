@@ -1,13 +1,11 @@
 package com.itmoclimbing.feature.routes.presentation.list
 
 import android.annotation.SuppressLint
-import com.bumptech.glide.Glide
 import com.itmoclimbing.domainCommon.model.Route
 import com.itmoclimbing.feature.routes.presentation.R
 import com.kommander.components.android.recycler.SimpleAdapterDelegate
 import com.kommander.components.android.recycler.ViewHolder
 import kotlinx.android.synthetic.main.item_route.itemRouteGrade
-import kotlinx.android.synthetic.main.item_route.itemRouteImage
 import kotlinx.android.synthetic.main.item_route.itemRouteSetter
 import kotlinx.android.synthetic.main.item_route.itemRouteTitle
 

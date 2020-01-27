@@ -20,7 +20,7 @@ class AppModule : Module() {
         bind<RootScreenNavigation>().singleton()
         bind<RxSchedulersProvider>().toClass<RxSchedulersProviderImpl>().singleton()
         bind<AppViewModelFactory>().singleton().releasable()
-        bind<MainViewModel>().singleton().releasable()
+        bind<MainViewModel>()
     }
 
 }

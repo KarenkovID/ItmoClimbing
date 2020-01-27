@@ -7,14 +7,14 @@
     android:padding="16dp">
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/createRouteNameInputLayout"
+        android:id="@+id/createUsersFirstNameInputLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/global_route_name"
+        android:hint="@string/global_word_first_name"
         app:layout_constraintTop_toTopOf="parent">
 
         <EditText
-            android:id="@+id/createRouteNameEditText"
+            android:id="@+id/createUsersFirstNameEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="text"/>
@@ -22,29 +22,14 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/createRouteGradeInputLayout"
+        android:id="@+id/createUsersLastNameInputLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/global_route_grade"
-        app:layout_constraintTop_toBottomOf="@id/createRouteNameInputLayout">
+        android:hint="@string/global_word_last_name"
+        app:layout_constraintTop_toBottomOf="@id/createUsersFirstNameInputLayout">
 
         <EditText
-            android:id="@+id/createRouteGradeEditText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="text"/>
-
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/createRouteDescriptionInputLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/global_word_description"
-        app:layout_constraintTop_toBottomOf="@id/createRouteGradeInputLayout">
-
-        <EditText
-            android:id="@+id/createRouteDescriptionEditText"
+            android:id="@+id/createUsersLastNameEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="text"/>
@@ -52,10 +37,10 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
-        android:id="@+id/createRouteCreateButton"
+        android:id="@+id/createUsersCreateButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/createRouteDescriptionInputLayout"
+        app:layout_constraintTop_toBottomOf="@id/createUsersLastNameInputLayout"
         android:text="@string/global_word_create"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

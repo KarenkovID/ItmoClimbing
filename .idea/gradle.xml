@@ -22,8 +22,6 @@
             <option value="$PROJECT_DIR$/features/common" />
             <option value="$PROJECT_DIR$/features/routes" />
             <option value="$PROJECT_DIR$/features/routes/api" />
-            <option value="$PROJECT_DIR$/features/routes/data" />
-            <option value="$PROJECT_DIR$/features/routes/domain" />
             <option value="$PROJECT_DIR$/features/routes/presentation" />
             <option value="$PROJECT_DIR$/features/users" />
             <option value="$PROJECT_DIR$/features/users/api" />

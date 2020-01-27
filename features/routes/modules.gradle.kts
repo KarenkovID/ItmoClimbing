@@ -1,8 +1,6 @@
 include(
         ":features:routes:api",
-        ":features:routes:presentation",
-        ":features:routes:data",
-        ":features:routes:domain"
+        ":features:routes:presentation"
 )
 
 //project(":featureRoutesPresentation").projectDir = File(featureRoutesRoot, "featureRoutesPresentation")

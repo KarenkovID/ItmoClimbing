@@ -5,6 +5,10 @@ plugins {
     id(BuildPlugins.kotlinKapt)
 }
 
+androidExtensions {
+    isExperimental = true
+}
+
 val staticAnalysisDir: String by rootProject.extra
 apply(from = "$staticAnalysisDir/lint.gradle")
 
@@ -34,6 +38,7 @@ dependencies {
     implementation(Libraries.appCompat)
     implementation(Libraries.ktxCore)
     implementation(Libraries.constraintLayout)
+    implementation(Libraries.adapterDelegates)
 
     testImplementation(TestLibraries.junit4)
     androidTestImplementation(TestLibraries.testRunner)

@@ -5,6 +5,10 @@ plugins {
     id(BuildPlugins.kotlinKapt)
 }
 
+androidExtensions {
+    isExperimental = true
+}
+
 val staticAnalysisDir: String by rootProject.extra
 apply(from = "$staticAnalysisDir/lint.gradle")
 

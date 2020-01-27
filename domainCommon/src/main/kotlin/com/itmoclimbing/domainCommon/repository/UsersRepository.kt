@@ -8,6 +8,6 @@ interface UsersRepository {
 
     fun getAllUsers(): Single<List<User>>
 
-    fun addUser(user: User): Completable
+    fun addUser(firstName: String, lastName: String): Completable
 
 }

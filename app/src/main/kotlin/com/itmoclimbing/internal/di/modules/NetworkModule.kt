@@ -1,6 +1,7 @@
 package com.itmoclimbing.internal.di.modules
 
 import com.itmoclimbing.dataCommon.network.api.RoutesApi
+import com.itmoclimbing.dataCommon.network.api.UsersApi
 import com.kommander.components.android.network.TimberHttpLogger
 import com.squareup.moshi.Moshi
 import okhttp3.OkHttpClient
@@ -52,11 +53,21 @@ class NetworkModule : Module() {
                     .build()
                     .create(RoutesApi::class.java)
 
+    private val usersApi: UsersApi =
+            Retrofit.Builder()
+                    .baseUrl(BASE_URL)
+                    .client(okHttpClient)
+                    .addConverterFactory(converterFactory)
+                    .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+                    .build()
+                    .create(UsersApi::class.java)
+
     init {
         bind<Moshi>().toInstance(moshi)
         bind<HttpLoggingInterceptor>().toInstance(loggingInterceptor)
         bind<OkHttpClient>().toInstance(okhttpClient)
         bind<RoutesApi>().toInstance(routesApi)
+        bind<UsersApi>().toInstance(usersApi)
     }
 
 }
