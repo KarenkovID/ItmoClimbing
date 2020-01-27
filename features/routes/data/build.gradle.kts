@@ -5,12 +5,9 @@ plugins {
     id(BuildPlugins.kotlinKapt)
 }
 
-androidExtensions {
-    isExperimental = true
-}
-
 val staticAnalysisDir: String by rootProject.extra
 apply(from = "$staticAnalysisDir/lint.gradle")
+
 
 android {
     compileSdkVersion(AndroidSdk.compile)
@@ -27,8 +24,8 @@ android {
 }
 
 dependencies {
-    implementation(project(":domainCommon"))
-    implementation(project(":dataCommon"))
+    implementation(project(Features.routes.domain))
+
     implementation(project(Projects.androidCore))
     implementation(project(Projects.domainCore))
     implementation(project(Features.common))
@@ -38,7 +35,6 @@ dependencies {
     implementation(Libraries.appCompat)
     implementation(Libraries.ktxCore)
     implementation(Libraries.constraintLayout)
-    implementation(Libraries.adapterDelegates)
 
     testImplementation(TestLibraries.junit4)
     androidTestImplementation(TestLibraries.testRunner)
@@ -56,6 +52,4 @@ dependencies {
     implementation(Libraries.rxAndroid)
 
     implementation(Libraries.androidLifecycleExtensions)
-
-    implementation(Libraries.glide)
 }

@@ -1,4 +1,4 @@
-package com.itmoclimbing.internal.di
+package com.itmoclimbing.internal.di.modules
 
 import com.itmoclimbing.feature.routes.RoutesMediatorImpl
 import com.itmoclimbing.feature.users.UsersMediatorImpl

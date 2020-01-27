@@ -39,6 +39,12 @@ class RoutesScreenContainerFragment : BaseScreenContainerFragment() {
         }
     }
 
-    override fun performOnBackPressed(): Boolean = false
+    override fun performOnBackPressed(): Boolean {
+        if (childFragmentManager.backStackEntryCount > 0) {
+            navigation.back()
+            return true
+        }
+        return false
+    }
 
 }

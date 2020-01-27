@@ -1,4 +1,4 @@
-package com.itmoclimbing.internal.di
+package com.itmoclimbing.internal.di.modules
 
 import com.kommander.components.android.navigation.AppRouter
 import com.itmoclimbing.presentation.AppViewModelFactory

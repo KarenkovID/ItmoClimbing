@@ -11,6 +11,8 @@ dependencies {
 
     implementation(DI.toothpickRuntime)
     implementation(DI.toothpickSmoothie)
+    implementation(Libraries.moshi)
+    kapt(Libraries.moshiCompiler)
     kapt(DI.toothpickCompiler)
 
     implementation(Libraries.cicerone)

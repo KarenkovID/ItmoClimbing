@@ -10,6 +10,10 @@ apply(from = "$rootDir/dependenciesGraph.gradle")
 apply(from = "$staticAnalysisDir/lint.gradle")
 
 android {
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
+    }
     //solves problem
     //https://stackoverflow.com/questions/45232350/disable-meta-inf-generation-in-gradle-android-library-kotlin-project/45235642#45235642
     packagingOptions {
@@ -91,4 +95,14 @@ dependencies {
     debugImplementation(DebugLibraries.leakcanary)
 
     implementation(Libraries.androidLifecycleExtensions)
+
+
+    implementation(Libraries.okhttp)
+    implementation(Libraries.okhttpLogInterceptor)
+    implementation(Libraries.retrofit)
+    implementation(Libraries.retrofitMoshiConverter)
+    implementation(Libraries.moshi)
+    implementation(Libraries.retrofitRxAdapter)
+    implementation(Libraries.retrofitScalarsConverter)
+    implementation(Libraries.roomRuntime)
 }

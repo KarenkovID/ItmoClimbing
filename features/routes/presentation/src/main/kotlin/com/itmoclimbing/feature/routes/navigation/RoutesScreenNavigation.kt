@@ -1,8 +1,9 @@
 package com.itmoclimbing.feature.routes.navigation
 
 import android.util.Log
+import com.itmoclimbing.feature.routes.presentation.creation.CreateRouteFragment
 import com.kommander.components.android.navigation.AppRouter
-import com.itmoclimbing.feature.routes.presentation.RoutesListFragment
+import com.itmoclimbing.feature.routes.presentation.list.RoutesListFragment
 import com.kommander.components.android.navigation.FragmentScreen
 import com.kommander.components.android.navigation.ScreenNavigation
 import toothpick.InjectConstructor
@@ -27,12 +28,22 @@ class RoutesScreenNavigation(
                     RoutesListFragment.Companion::newInstance
             )
 
+    private val createRouteScreen =
+            FragmentScreen(
+                    "ROUTES_LIST_SCREEN",
+                    CreateRouteFragment.Companion::newInstance
+            )
+
     fun openRoutesListAsRoot() {
         router.newRootScreen(routesListScreen)
     }
 
     fun openAndReplaceRoutesList() {
         router.replaceScreen(routesListScreen)
+    }
+
+    fun openCreateRouter() {
+        router.addScreen(createRouteScreen)
     }
 
 }

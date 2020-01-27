@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="global_route_name">Название трассы</string>
+    <string name="global_route_grade">Категория</string>
+    <string name="global_route_setter">Постановщик</string>
+    <string name="global_word_description">Описание</string>
+</resources>

@@ -16,6 +16,7 @@ object BuildPlugins {
     const val kotlinAndroid = "kotlin-android"
     const val kotlinAndroidExtensions = "kotlin-android-extensions"
     const val kotlinKapt = "kotlin-kapt"
+    const val kotlin = "kotlin"
 
 }
 
@@ -32,6 +33,10 @@ object Libraries {
         const val ktx = "1.0.0"
         const val material = "1.0.0"
         const val androidLifecycleVersion = "1.1.1"
+        const val okhttp = "3.14.4"
+        const val moshi = "1.9.2"
+        const val retrofit = "2.7.0"
+        const val room = "2.2.2"
     }
 
     const val kotlinStdLib = "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion"
@@ -47,6 +52,21 @@ object Libraries {
     const val rxJava = "io.reactivex.rxjava2:rxjava:2.2.16"
     const val rxKotlin = "io.reactivex.rxjava2:rxkotlin:2.4.0"
     const val rxAndroid = "io.reactivex.rxjava2:rxandroid:2.1.1"
+    const val glide = "com.github.bumptech.glide:glide:4.11.0"
+
+    const val okhttp = "com.squareup.okhttp3:okhttp:${Versions.okhttp}"
+    const val okhttpLogInterceptor = "com.squareup.okhttp3:logging-interceptor:${Versions.okhttp}"
+    const val retrofit = "com.squareup.retrofit2:retrofit:${Versions.retrofit}"
+    const val retrofitRxAdapter = "com.squareup.retrofit2:adapter-rxjava2:${Versions.retrofit}"
+    const val retrofitScalarsConverter = "com.squareup.retrofit2:converter-scalars:${Versions.retrofit}"
+    const val retrofitMoshiConverter = "com.squareup.retrofit2:converter-moshi:${Versions.retrofit}"
+    const val moshi = "com.squareup.moshi:moshi:${Versions.moshi}"
+    const val moshiCompiler = "com.squareup.moshi:moshi-kotlin-codegen:${Versions.moshi}"
+
+    const val roomRuntime = "androidx.room:room-runtime:${Versions.room}"
+    const val roomCompiler = "androidx.room:room-compiler:${Versions.room}"
+    const val roomRx = "androidx.room:room-rxjava2:${Versions.room}"
+
 }
 
 object DebugLibraries {
@@ -77,6 +97,8 @@ object Projects {
 
     const val androidCore = ":android_core"
     const val domainCore = ":domain_core"
+    const val domainCommon = ":domainCommon"
+    const val dataCommon = ":dataCommon"
 
 }
 
