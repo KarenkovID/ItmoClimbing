@@ -17,7 +17,7 @@ class RouteAdapterDelegate(
     override fun onBindViewHolder(
             item: Route,
             viewHolder: ViewHolder
-    ): Unit = with(viewHolder) {
+    ) = with(viewHolder) {
         itemView.setOnClickListener { onRouteClick(item) }
         itemRouteTitle.text = item.name
         // TODO ad images support

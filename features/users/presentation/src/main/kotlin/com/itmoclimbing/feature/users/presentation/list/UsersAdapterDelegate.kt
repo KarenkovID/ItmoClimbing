@@ -12,7 +12,7 @@ class UsersAdapterDelegate : SimpleAdapterDelegate<User, User>(R.layout.item_use
     override fun onBindViewHolder(
             item: User,
             viewHolder: ViewHolder
-    ): Unit = with(viewHolder) {
+    ) = with(viewHolder) {
         itemUserFirstName.text = item.firstName
         itemUserLastName.text = item.lastName
     }

@@ -5,7 +5,6 @@ import com.itmoclimbing.features.common.BaseMediator
 import com.itmoclimbing.features.common.api.FeatureRoutesApi
 import com.itmoclimbing.features.common.dependencies.RoutesDependencies
 import com.itmoclimbing.features.common.di.DiScopes
-import com.itmoclimbing.features.common.mediators.AppMediator
 import com.itmoclimbing.features.common.mediators.RoutesMediator
 import com.itmoclimbing.features.common.mediators.UsersMediator
 import toothpick.InjectConstructor

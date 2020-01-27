@@ -57,7 +57,7 @@ class UsersListFragment : BaseFragment(R.layout.fragment_users_list) {
         usersListRecycler.adapter = ListDelegationAdapter(UsersAdapterDelegate())
         viewModel.usersListLiveData.observe(viewLifecycleOwner) { contentEvent ->
             if (contentEvent is ContentEvent.Success) {
-                with((usersListRecycler.adapter as ListDelegationAdapter<List<User>>)) {
+                with(usersListRecycler.adapter as ListDelegationAdapter<List<User>>) {
                     val diffResult = DiffUtil.calculateDiff(DefaultDiffCallback(items.orEmpty(), contentEvent.data))
                     items = contentEvent.data
                     diffResult.dispatchUpdatesTo(this)

@@ -12,7 +12,7 @@ import toothpick.InjectConstructor
 @InjectConstructor
 class RoutesRepositoryImpl(
         private val routesApi: RoutesApi
-): RoutesRepository {
+) : RoutesRepository {
 
     override fun getRoutes(): Single<List<Route>> = routesApi.getRoutes()
 
