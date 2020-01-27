@@ -15,6 +15,7 @@ interface UsersApi {
 
     companion object {
         private const val USER_ID = "USER_ID"
+        private const val ROUTE_ID = "ROUTE_ID"
     }
 
     @GET("users")
@@ -25,19 +26,24 @@ interface UsersApi {
             @Body body: AddUserRequestBody
     ): Completable
 
-    @GET("users/$USER_ID")
+    @GET("routes/passed/route/{$ROUTE_ID}")
+    fun getUsersByRouteId(
+            @Path(ROUTE_ID) routeId: Int
+    ): Single<List<User>>
+
+    @GET("users/{$USER_ID}")
     fun getUser(
-            @Path(USER_ID) userId: String
+            @Path(USER_ID) userId: Int
     ): Single<User>
 
-    @PUT("users/$USER_ID")
+    @PUT("users/{$USER_ID}")
     fun updateUser(
             @Path(USER_ID) userId: Int
     ): Completable
 
-    @DELETE("users/$USER_ID")
+    @DELETE("users/{$USER_ID}")
     fun removeUser(
-            @Path(USER_ID) userId: String
+            @Path(USER_ID) userId: Int
     ): Completable
 
 }

@@ -37,6 +37,7 @@ internal class RoutesListFragment : BaseFragment(R.layout.fragment_routes_list) 
                 .get(RoutesListViewModel::class.java)
     }
 
+    @Suppress("ConvertLambdaToReference")
     override fun onViewCreated(
             view: View,
             savedInstanceState: Bundle?
@@ -45,11 +46,10 @@ internal class RoutesListFragment : BaseFragment(R.layout.fragment_routes_list) 
         routesFab.setOnClickListener {
             viewModel.onFabClick()
         }
-        @Suppress("ConvertLambdaToReference")
         routesListSwipeRefresh.setOnRefreshListener {
             viewModel.loadRoutes()
         }
-        routesListRecycler.adapter = ListDelegationAdapter<List<Route>>(RouteAdapterDelegate())
+        routesListRecycler.adapter = ListDelegationAdapter<List<Route>>(RouteAdapterDelegate {viewModel.onRouteClick(it)})
         viewModel.routesListLiveData.observe(viewLifecycleOwner) { contentEvent ->
             if (contentEvent is ContentEvent.Success) {
                 with ((routesListRecycler.adapter as ListDelegationAdapter<List<Route>>)) {

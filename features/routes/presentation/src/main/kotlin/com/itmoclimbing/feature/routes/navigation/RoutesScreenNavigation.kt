@@ -2,8 +2,10 @@ package com.itmoclimbing.feature.routes.navigation
 
 import android.util.Log
 import com.itmoclimbing.feature.routes.presentation.creation.CreateRouteFragment
-import com.kommander.components.android.navigation.AppRouter
+import com.itmoclimbing.feature.routes.presentation.details.RouteDetailsFragment
 import com.itmoclimbing.feature.routes.presentation.list.RoutesListFragment
+import com.itmoclimbing.features.common.dependencies.RoutesDependencies
+import com.kommander.components.android.navigation.AppRouter
 import com.kommander.components.android.navigation.FragmentScreen
 import com.kommander.components.android.navigation.ScreenNavigation
 import toothpick.InjectConstructor
@@ -11,7 +13,8 @@ import javax.inject.Named
 
 @InjectConstructor
 class RoutesScreenNavigation(
-        @Named(NAME) appRouter: AppRouter
+        @Named(NAME) appRouter: AppRouter,
+        private val routesDependencies: RoutesDependencies
 ) : ScreenNavigation(appRouter) {
 
     companion object {
@@ -30,9 +33,15 @@ class RoutesScreenNavigation(
 
     private val createRouteScreen =
             FragmentScreen(
-                    "ROUTES_LIST_SCREEN",
+                    "CREATE_ROUTE_SCREEN",
                     CreateRouteFragment.Companion::newInstance
             )
+
+    private fun getRouteDetailsScreen(routeId: Int) =
+            FragmentScreen("ROUTE_DETAILS_SCREEN") { RouteDetailsFragment.newInstance(routeId) }
+
+    private fun getUsersPassedRouteScreen(routeId: Int) =
+            FragmentScreen("USERS_PASSED_ROUTE_SCREEN") { routesDependencies.getUsersSolvedRouteFragment(routeId) }
 
     fun openRoutesListAsRoot() {
         router.newRootScreen(routesListScreen)
@@ -44,6 +53,14 @@ class RoutesScreenNavigation(
 
     fun openCreateRouter() {
         router.addScreen(createRouteScreen)
+    }
+
+    fun openRouteDetails(routeId: Int) {
+        router.addScreen(getRouteDetailsScreen(routeId))
+    }
+
+    fun openUsersPassedRoute(routeId: Int) {
+        router.addScreen(getUsersPassedRouteScreen(routeId))
     }
 
 }

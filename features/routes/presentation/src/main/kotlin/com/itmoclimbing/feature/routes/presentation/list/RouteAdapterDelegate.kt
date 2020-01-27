@@ -9,13 +9,16 @@ import kotlinx.android.synthetic.main.item_route.itemRouteGrade
 import kotlinx.android.synthetic.main.item_route.itemRouteSetter
 import kotlinx.android.synthetic.main.item_route.itemRouteTitle
 
-class RouteAdapterDelegate : SimpleAdapterDelegate<Route, Route>(R.layout.item_route, Route::class.java) {
+class RouteAdapterDelegate(
+        private val onRouteClick: (Route) -> Unit
+) : SimpleAdapterDelegate<Route, Route>(R.layout.item_route, Route::class.java) {
 
     @SuppressLint("SetTextI18n")
     override fun onBindViewHolder(
             item: Route,
             viewHolder: ViewHolder
     ): Unit = with(viewHolder) {
+        itemView.setOnClickListener { onRouteClick(item) }
         itemRouteTitle.text = item.name
         // TODO ad images support
 //        Glide
@@ -23,7 +26,9 @@ class RouteAdapterDelegate : SimpleAdapterDelegate<Route, Route>(R.layout.item_r
 //                .load(item.imagesUrls.firstOrNull())
 //                .into(itemRouteImage)
         itemRouteGrade.text = item.grade
-        itemRouteSetter.text = "${item.setter?.firstName} ${item.setter?.lastName}"
+        if (item.setter != null) {
+            itemRouteSetter.text = "${item.setter?.firstName} ${item.setter?.lastName}"
+        }
     }
 
 }

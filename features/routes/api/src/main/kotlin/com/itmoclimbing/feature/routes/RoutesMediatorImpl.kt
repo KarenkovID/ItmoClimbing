@@ -7,14 +7,15 @@ import com.itmoclimbing.features.common.dependencies.RoutesDependencies
 import com.itmoclimbing.features.common.di.DiScopes
 import com.itmoclimbing.features.common.mediators.AppMediator
 import com.itmoclimbing.features.common.mediators.RoutesMediator
+import com.itmoclimbing.features.common.mediators.UsersMediator
 import toothpick.InjectConstructor
 import toothpick.ktp.extension.getInstance
 
 @InjectConstructor
 class RoutesMediatorImpl : BaseMediator<FeatureRoutesApi, RoutesComponent, RoutesDependencies>(), RoutesMediator {
 
-    private val appMediator: AppMediator by lazy {
-        DiScopes.ROOT_SCOPE.openScope().getInstance<AppMediator>()
+    private val usersMediator: UsersMediator by lazy {
+        DiScopes.ROOT_SCOPE.openScope().getInstance<UsersMediator>()
     }
 
     /**
@@ -31,9 +32,7 @@ class RoutesMediatorImpl : BaseMediator<FeatureRoutesApi, RoutesComponent, Route
 
     override fun provideDependencies(): RoutesDependencies = object : RoutesDependencies {
 
-        override fun selectUsersTab() = appMediator.apiStub.selectUsersTab()
-
-        override fun getUsersFragment(): Fragment = TODO()
+        override fun getUsersSolvedRouteFragment(routeId: Int): Fragment = usersMediator.apiStub.getUsersPassedRouteFragment(routeId)
 
     }
 

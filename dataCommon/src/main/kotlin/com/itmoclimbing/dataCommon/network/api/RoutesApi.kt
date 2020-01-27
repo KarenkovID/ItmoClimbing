@@ -25,19 +25,19 @@ interface RoutesApi {
             @Body body: AddRouteRequestBody
     ): Completable
 
-    @GET("routes/$ROUTE_ID")
+    @GET("routes/{$ROUTE_ID}")
     fun getRoute(
-            @Path(ROUTE_ID) routeId: String
+            @Path(ROUTE_ID) routeId: Int
     ): Single<Route>
 
-    @PUT("routes/$ROUTE_ID")
+    @PUT("routes/{$ROUTE_ID}")
     fun updateRoute(
             @Path(ROUTE_ID) routeId: Int
     ): Completable
 
-    @DELETE("routes/$ROUTE_ID")
+    @DELETE("routes/{$ROUTE_ID}")
     fun removeRoute(
-            @Path(ROUTE_ID) routeId: String
+            @Path(ROUTE_ID) routeId: Int
     ): Completable
 
 }

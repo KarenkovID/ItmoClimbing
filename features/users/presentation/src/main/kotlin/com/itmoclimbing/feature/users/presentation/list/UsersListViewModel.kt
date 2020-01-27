@@ -5,7 +5,6 @@ import com.itmoclimbing.domainCommon.model.User
 import com.itmoclimbing.domainCommon.repository.UsersRepository
 import com.itmoclimbing.feature.users.navigation.UsersScreenNavigation
 import com.itmoclimbing.feature.users.presentation.UserCreatedCallback
-import com.kommander.components.android.extensions.schedulersIoToMain
 import com.kommander.components.android.viewmodel.BaseViewModel
 import com.kommander.components.android.viewmodel.livedata.ContentEvent
 import com.kommander.components.android.viewmodel.livedata.dispatchTo
@@ -24,7 +23,10 @@ class UsersListViewModel(
     private var loadingDisposable: Disposable? = null
     private var userCreationDisposable: Disposable? = null
 
-    init {
+    private var routeId: Int? = null
+
+    fun init(routeId: Int?) {
+        this.routeId = routeId
         loadUsers()
     }
 
@@ -41,10 +43,7 @@ class UsersListViewModel(
 
     fun loadUsers() {
         loadingDisposable?.dispose()
-        loadingDisposable = usersRepository
-                .getAllUsers()
-                .schedulersIoToMain()
-                .dispatchTo(usersListLiveData)
+        loadingDisposable = (routeId?.let(usersRepository::getUsersByRouteId) ?: usersRepository.getAllUsers()).dispatchTo(usersListLiveData)
     }
 
 }

@@ -3,6 +3,7 @@ package com.itmoclimbing.feature.users.presentation.list
 import android.content.Context
 import android.os.Bundle
 import android.view.View
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.DiffUtil
 import com.hannesdorfmann.adapterdelegates4.ListDelegationAdapter
@@ -10,6 +11,7 @@ import com.itmoclimbing.domainCommon.model.User
 import com.itmoclimbing.feature.users.di.DI
 import com.itmoclimbing.feature.users.presentation.R
 import com.kommander.components.android.extensions.observe
+import com.kommander.components.android.extra.args
 import com.kommander.components.android.presentation.base.BaseFragment
 import com.kommander.components.android.recycler.DefaultDiffCallback
 import com.kommander.components.android.viewmodel.livedata.ContentEvent
@@ -21,8 +23,12 @@ import toothpick.ktp.extension.getInstance
 class UsersListFragment : BaseFragment(R.layout.fragment_users_list) {
 
     companion object {
-        fun newInstance() = UsersListFragment()
+        fun newInstance(): Fragment = UsersListFragment()
+
+        fun newInstance(routeId: Int): Fragment = UsersListFragment().also { it.routeId = routeId }
     }
+
+    private var routeId: Int? by args<Int?>()
 
     private lateinit var viewModel: UsersListViewModel
 
@@ -33,6 +39,7 @@ class UsersListFragment : BaseFragment(R.layout.fragment_users_list) {
         viewModel = ViewModelProviders
                 .of(this, DI.getUsersInternalScope().getInstance())
                 .get(UsersListViewModel::class.java)
+                .also { it.init(routeId) }
     }
 
     override fun onViewCreated(

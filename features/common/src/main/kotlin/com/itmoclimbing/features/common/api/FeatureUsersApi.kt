@@ -6,4 +6,6 @@ interface FeatureUsersApi {
 
     fun getUsersFragment(): Fragment
 
+    fun getUsersPassedRouteFragment(routeId: Int): Fragment
+
 }

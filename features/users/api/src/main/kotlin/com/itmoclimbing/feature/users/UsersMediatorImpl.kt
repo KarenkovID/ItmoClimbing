@@ -18,6 +18,8 @@ class UsersMediatorImpl : BaseMediator<FeatureUsersApi, UsersComponent, UsersDep
 
         override fun getUsersFragment(): Fragment = component.api().getUsersFragment()
 
+        override fun getUsersPassedRouteFragment(routeId: Int): Fragment = component.api().getUsersPassedRouteFragment(routeId)
+
     }
 
     override fun provideComponent(dependencies: UsersDependencies): UsersComponent = UsersComponent(dependencies)

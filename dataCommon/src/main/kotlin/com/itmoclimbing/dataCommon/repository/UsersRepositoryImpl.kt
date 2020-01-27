@@ -14,7 +14,9 @@ class UsersRepositoryImpl(
         private val usersApi: UsersApi
 ) : UsersRepository {
 
-    override fun getAllUsers(): Single<List<User>> = usersApi.getUsers()
+    override fun getAllUsers(): Single<List<User>> = usersApi.getUsers().schedulersIoToMain()
+
+    override fun getUsersByRouteId(routeId: Int): Single<List<User>> = usersApi.getUsersByRouteId(routeId).schedulersIoToMain()
 
     override fun addUser(
             firstName: String,

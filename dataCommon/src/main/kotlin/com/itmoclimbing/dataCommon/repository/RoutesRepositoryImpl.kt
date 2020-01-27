@@ -16,8 +16,10 @@ class RoutesRepositoryImpl(
 
     override fun getRoutes(): Single<List<Route>> = routesApi.getRoutes()
 
+    override fun getRouteById(routeId: Int): Single<Route> = routesApi.getRoute(routeId).schedulersIoToMain()
+
     override fun addRoute(name: String, grade: String, description: String): Completable =
             routesApi.addRoute(AddRouteRequestBody(name, grade, description)).schedulersIoToMain()
 
-    override fun removeRoute(routeId: String): Completable = routesApi.removeRoute(routeId)
+    override fun removeRoute(routeId: Int): Completable = routesApi.removeRoute(routeId)
 }

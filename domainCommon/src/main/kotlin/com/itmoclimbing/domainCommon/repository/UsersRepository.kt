@@ -8,6 +8,8 @@ interface UsersRepository {
 
     fun getAllUsers(): Single<List<User>>
 
+    fun getUsersByRouteId(routeId: Int): Single<List<User>>
+
     fun addUser(firstName: String, lastName: String): Completable
 
 }

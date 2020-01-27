@@ -9,8 +9,10 @@ interface RoutesRepository {
 
     fun getRoutes(): Single<List<Route>>
 
+    fun getRouteById(routeId: Int): Single<Route>
+
     fun addRoute(name: String, grade: String, description: String): Completable
 
-    fun removeRoute(routeId: String): Completable
+    fun removeRoute(routeId: Int): Completable
 
 }

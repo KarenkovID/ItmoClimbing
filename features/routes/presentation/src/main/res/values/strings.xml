@@ -4,4 +4,5 @@
     <string name="global_route_grade">Категория</string>
     <string name="global_route_setter">Постановщик</string>
     <string name="global_word_description">Описание</string>
+    <string name="route_details_show_users">Показать пролезвших</string>
 </resources>

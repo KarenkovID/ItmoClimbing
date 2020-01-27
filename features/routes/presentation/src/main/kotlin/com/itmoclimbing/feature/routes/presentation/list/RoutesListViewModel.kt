@@ -49,4 +49,8 @@ class RoutesListViewModel(
                 .dispatchTo(routesListLiveData)
     }
 
+    fun onRouteClick(route: Route) {
+        routesScreenNavigation.openRouteDetails(route.id)
+    }
+
 }
